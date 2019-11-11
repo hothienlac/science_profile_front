@@ -1,0 +1,43 @@
+<ng2-smart-table [settings]="settings.interests"
+    [source]="source.interests"
+    (deleteConfirm)="onDeleteConfirm($event)">
+</ng2-smart-table>
+
+<h6>Published Research in pass 5 years</h6>
+
+<ng2-smart-table [settings]="settings.latestPublishedResearches"
+    [source]="source.latestPublishedResearches"
+    (deleteConfirm)="onDeleteConfirm($event)">
+</ng2-smart-table>
+
+<h6>Total Published Research</h6>
+
+<p>ISI Paper</p>
+<ng2-smart-table [settings]="settings.publishedResearches"
+    [source]="source.publishedResearches.ISIPaper"
+    (deleteConfirm)="onDeleteConfirm($event)">
+</ng2-smart-table>
+
+<p>Other International Paper</p>
+<ng2-smart-table [settings]="settings.publishedResearches"
+    [source]="source.publishedResearches.otherInternationalPaper"
+    (deleteConfirm)="onDeleteConfirm($event)">
+</ng2-smart-table>
+
+<p>National Paper</p>
+<ng2-smart-table [settings]="settings.publishedResearches"
+    [source]="source.publishedResearches.nationalPaper"
+    (deleteConfirm)="onDeleteConfirm($event)">
+</ng2-smart-table>
+
+<p>Conference Reports</p>
+<ng2-smart-table [settings]="settings.publishedResearches"
+    [source]="source.publishedResearches.conferenceReports"
+    (deleteConfirm)="onDeleteConfirm($event)">
+</ng2-smart-table>
+
+<p>Others</p>
+<ng2-smart-table [settings]="settings.publishedResearches"
+    [source]="source.publishedResearches.other"
+    (deleteConfirm)="onDeleteConfirm($event)">
+</ng2-smart-table>

@@ -1,0 +1,86 @@
+<nb-card>
+    <nb-card-header>
+        <div class="row show-grid">
+            <div class="col-md-2">
+                <img
+                    src="https://dl.airtable.com/7hFbl0uvQEiF4UAIpT2e_Trường-ĐH-Tân-Tạo%C2%A0.png"
+                    alt="TTU"
+                    height="60"
+                    width="72">
+            </div>
+            <div class="col-md-8">
+                <h1 style="color: green; text-align: center;">TAN TAO UNIVERSITY JOURNAL</h1>
+            </div>
+            <div class="col-md-2">
+                <p>User ID: 2284</p>
+            </div>
+        </div>
+    </nb-card-header>
+
+    <nb-card-body>
+
+            <div class="row show-grid">
+                <div class="col-md-2">
+                    <button fullWidth nbButton status="primary" (click)="onEdit()" [hidden]="editing">Edit</button>
+                    <button fullWidth nbButton status="danger" (click)="onCancel()" [hidden]="!editing">Save</button>
+                </div>
+                <div class="col-md-8">
+                    <h1 style="color: blue; text-align: center;">Science Profile</h1>
+                </div>
+                <div class="col-md-2">
+                    <button fullWidth nbButton status="success" (click)="onCancel()" [hidden]="!editing">Cancel</button>
+                </div>
+            </div>
+            <div>
+                <nb-accordion multi>
+
+                    <nb-accordion-item #item>
+                        <nb-accordion-item-header>
+                            Personal Information
+                        </nb-accordion-item-header>
+                        <nb-accordion-item-body>
+                            <ngx-personal-information></ngx-personal-information>
+                        </nb-accordion-item-body>
+                    </nb-accordion-item>
+
+                    <nb-accordion-item>
+                        <nb-accordion-item-header>
+                            Education
+                        </nb-accordion-item-header>
+                        <nb-accordion-item-body>
+                            <ngx-education></ngx-education>
+                        </nb-accordion-item-body>
+                    </nb-accordion-item>
+
+                    <nb-accordion-item>
+                        <nb-accordion-item-header>
+                            Career
+                        </nb-accordion-item-header>
+                        <nb-accordion-item-body>
+                            <ngx-career></ngx-career>
+                        </nb-accordion-item-body>
+                    </nb-accordion-item>
+
+                    <nb-accordion-item>
+                        <nb-accordion-item-header>
+                            Foreign Language
+                        </nb-accordion-item-header>
+                        <nb-accordion-item-body>
+                            <ngx-foreign-languages></ngx-foreign-languages>
+                        </nb-accordion-item-body>
+                    </nb-accordion-item>
+
+                    <nb-accordion-item>
+                        <nb-accordion-item-header>
+                            Experience and Researches
+                        </nb-accordion-item-header>
+                        <nb-accordion-item-body>
+                            <ngx-experience-and-reserches></ngx-experience-and-reserches>
+                        </nb-accordion-item-body>
+                    </nb-accordion-item>
+
+                </nb-accordion>
+            </div>
+
+    </nb-card-body>
+</nb-card>
