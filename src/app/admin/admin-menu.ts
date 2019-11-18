@@ -8,9 +8,9 @@ export const MENU_ITEMS: NbMenuItem[] = [
     home: true,
   },
   {
-    title: 'Post Paper',
+    title: 'Research',
     icon: 'edit-2-outline',
-    link: '/admin/posting',
+    link: '/admin/research',
     home: true,
   },
   {
@@ -42,7 +42,7 @@ export const MENU_ITEMS_ADMIN: NbMenuItem[] = [
   {
     title: 'Reviewing Papers',
     icon: 'clipboard-outline',
-    link: '/admin/review',
+    link: '/admin/reviewing',
     home: true,
   },
   {

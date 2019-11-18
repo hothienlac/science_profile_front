@@ -25,6 +25,41 @@ const routes: Routes = [
 					),
 			},
 			{
+				path: 'research',
+				loadChildren: () =>
+					import('./research/research.module').then(
+						(m) => m.ResearchModule
+					),
+			},
+			{
+				path: 'setting',
+				loadChildren: () =>
+					import('./setting/setting.module').then(
+						(m) => m.SettingModule
+					),
+			},
+			{
+				path: 'published',
+				loadChildren: () =>
+					import('./published/published.module').then(
+						(m) => m.PublishedModule
+					),
+			},
+			{
+				path: 'pending',
+				loadChildren: () =>
+					import('./pending/pending.module').then(
+						(m) => m.PendingModule
+					),
+			},
+			{
+				path: 'reviewing',
+				loadChildren: () =>
+					import('./reviewing/reviewing.module').then(
+						(m) => m.ReviewingModule
+					),
+			},
+			{
 				path: 'users',
 				loadChildren: () =>
 					import('./users/users.module').then(

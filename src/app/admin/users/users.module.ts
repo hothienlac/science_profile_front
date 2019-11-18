@@ -22,8 +22,8 @@ import { ThemeModule } from '../../@theme/theme.module';
 
 import { UsersRoutingModule } from './users-routing.module';
 import { UsersComponent } from './users.component';
-import { TableComponent } from './table/table.component';
-import { DetailComponent } from './detail/detail.component';
+import { UserTableComponent } from './user-table/user-table.component';
+import { UserDetailComponent } from './user-detail/user-detail.component';
 import { NewUserComponent } from './new-user/new-user.component';
 import { ArchiveUserComponent } from './archive-user/archive-user.component';
 import { ScienceProfileFormModule } from '../../@theme/template/science-profile-form/science-profile-form.module';
@@ -34,8 +34,8 @@ import { UtilModule } from '../../@theme/template/util/util.module';
 @NgModule({
   declarations: [
     UsersComponent,
-    TableComponent,
-    DetailComponent,
+    UserTableComponent,
+    UserDetailComponent,
     NewUserComponent,
     ArchiveUserComponent],
   imports: [

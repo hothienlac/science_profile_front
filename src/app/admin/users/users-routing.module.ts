@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { UsersComponent } from './users.component';
-import { TableComponent } from './table/table.component';
-import { DetailComponent } from './detail/detail.component';
+import { UserTableComponent } from './user-table/user-table.component';
+import { UserDetailComponent } from './user-detail/user-detail.component';
 import { NewUserComponent } from './new-user/new-user.component';
 
 
@@ -14,11 +14,11 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: TableComponent,
+        component: UserTableComponent,
       },
       {
         path: 'detail/:id',
-        component: DetailComponent,
+        component: UserDetailComponent,
       },
       {
         path: 'detail',

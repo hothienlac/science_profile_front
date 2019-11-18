@@ -7,10 +7,13 @@ import { AdminComponent } from './admin.component';
 
 import { ThemeModule } from '../@theme/theme.module';
 import { MiscellaneousModule } from '../@theme/template/miscellaneous/miscellaneous.module';
+import { ResearchComponent } from './research/research.component';
+import { NewComponent } from './research/new/new.component';
+import { DetailComponent } from './research/detail/detail.component';
 
 
 @NgModule({
-  declarations: [AdminComponent],
+  declarations: [AdminComponent, ResearchComponent, NewComponent, DetailComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

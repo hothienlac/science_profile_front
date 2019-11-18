@@ -1,0 +1,30 @@
+<nb-card>
+  <nb-card-header>
+
+      <p>
+          USERS
+      </p>
+
+      <div>
+          <div class="row">
+            <div class="col">
+                <h1>Users</h1>
+            </div>
+            <div class="col-6">
+            </div>
+            <div class="col">
+              <button type="button" class="btn btn-primary btn-block" (click)="newUser()">Add New User</button>
+            </div>
+          </div>
+      </div>
+
+  </nb-card-header>
+
+  <nb-card-body>
+    <ng2-smart-table [settings]="settings"
+      [source]="source"
+      (deleteConfirm)="onDeleteConfirm($event)"
+      (userRowSelect)="rowSelect($event)">
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>

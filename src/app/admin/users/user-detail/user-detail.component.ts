@@ -4,10 +4,10 @@ import { IScienceProfile } from '@ngx/models';
 
 @Component({
   selector: 'ngx-detail',
-  templateUrl: './detail.component.html',
-  styleUrls: ['./detail.component.scss']
+  templateUrl: './user-detail.component.html',
+  styleUrls: ['./user-detail.component.scss']
 })
-export class DetailComponent implements OnInit {
+export class UserDetailComponent implements OnInit {
 
   scienceProfile: IScienceProfile;
 

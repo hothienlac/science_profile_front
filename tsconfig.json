@@ -19,6 +19,17 @@
     ],
     "plugins": [
       { "name": "tslint-language-service"}
-    ]
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@ngx/api-interface": ["libs/api-interface/src/index.ts"],
+      "@ngx/models": ["libs/models/src/index.ts"],
+      "@env-api/environment": ["src/environments/environment.ts"]
+    },
+    "preserveConstEnums": true,
+    "allowSyntheticDefaultImports": true,
+    "noUnusedLocals": false,
+    "noImplicitAny": false,
+    "esModuleInterop": false,
   }
 }

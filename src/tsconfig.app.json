@@ -2,17 +2,16 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "outDir": "../out-tsc/app",
-    "baseUrl": "../",
     "paths": {
       "@angular/*": [
-        "./node_modules/@angular/*"
+        "../node_modules/@angular/*"
       ],
       "@nebular/*": [
-        "./node_modules/@nebular/*"
+        "../node_modules/@nebular/*"
       ],
-      "@ngx/api-interface": ["./libs/api-interface/src/index.ts"],
-      "@ngx/models": ["./libs/models/src/index.ts"],
-      "@env-api/environment": ["./src/environments/environment.ts"]
+      "@ngx/api-interface": ["libs/api-interface/src/index.ts"],
+      "@ngx/models": ["libs/models/src/index.ts"],
+      "@env-api/environment": ["src/environments/environment.ts"]
     }
   },
   "exclude": [

@@ -7,11 +7,11 @@ import { IUser } from '@ngx/models';
 import { DefaultDataService } from 'src/app/@core__/services/default-data.service';
 
 @Component({
-  selector: 'ngx-table',
-  templateUrl: './table.component.html',
-  styleUrls: ['./table.component.scss'],
+  selector: 'ngx-research-table',
+  templateUrl: './research-table.component.html',
+  styleUrls: ['./research-table.component.scss'],
 })
-export class TableComponent {
+export class ResearchTableComponent {
 
   settings = {
     actions: false,
