@@ -3,13 +3,13 @@ import {
     ActivatedRouteSnapshot,
     CanActivate,
     Router,
-    RouterStateSnapshot
+    RouterStateSnapshot,
 } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
-    
+
     constructor(
         private readonly router: Router,
         private authService: AuthService,
@@ -17,12 +17,11 @@ export class AuthGuard implements CanActivate {
 
     async canActivate(
         route: ActivatedRouteSnapshot,
-        state: RouterStateSnapshot
+        state: RouterStateSnapshot,
     ) {
-        return true; // BACKEND NOT IMPLEMENTED YET
-        
         const isAuthenticated = await this.authService.isAuthenticated();
 
+        console.log(isAuthenticated);
         if (isAuthenticated) {
             // logged in so return true
             return true;
@@ -30,7 +29,7 @@ export class AuthGuard implements CanActivate {
 
         // not logged in so redirect to login page with the return url
         this.router.navigate(['/auth/login'], {
-            queryParams: { returnUrl: state.url }
+            queryParams: { returnUrl: state.url },
         });
 
         return false;

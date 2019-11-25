@@ -12,19 +12,13 @@ import {
 import { AuthGuard } from './@core__/auth/auth.guard';
 import { RoleGuard } from './@core__/auth/role.guard';
 import { ERoles } from '@ngx/models';
-import { RegisterComponent } from './register_component/register.component';
 
 const routes: Routes = [
   {
     path: 'admin',
     loadChildren: () => import('./admin/admin.module')
       .then(m => m.AdminModule),
-    canActivate: [RoleGuard],
-    data: {
-      expectedRole: [
-        ERoles.ADMIN
-      ]
-    }
+    canActivate: [AuthGuard],
   },
   {
     path: 'pages',
@@ -45,7 +39,7 @@ const routes: Routes = [
       },
       {
         path: 'register',
-        component: RegisterComponent,
+        component: NbRegisterComponent,
       },
       {
         path: 'logout',
@@ -61,7 +55,7 @@ const routes: Routes = [
       },
     ],
   },
-  { path: '', redirectTo: 'pages', pathMatch: 'full' },
+  { path: '', redirectTo: 'admin', pathMatch: 'full' },
   { path: '**', redirectTo: 'pages' },
 ];
 

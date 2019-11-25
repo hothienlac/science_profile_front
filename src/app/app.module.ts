@@ -21,14 +21,13 @@ import {
   NbToastrModule,
   NbWindowModule,
 } from '@nebular/theme';
-import { RegisterComponent } from './register_component/register.component';
-// import { FileUploadModule } from 'ng2-file-upload';
+import { FileUploadModule } from 'ng2-file-upload';
 import { APP_BASE_HREF } from '@angular/common';
 import { APIInterceptor } from './@core__/api.interceptor';
 import { TokenInterceptor } from './@core__/auth/token.interceptor';
 
 @NgModule({
-  declarations: [AppComponent, RegisterComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -48,21 +47,21 @@ import { TokenInterceptor } from './@core__/auth/token.interceptor';
     }),
     CoreModule.forRoot(),
     Core__Module.forRoot(),
-		// FileUploadModule,
+    FileUploadModule,
   ],
   providers: [
-		{ provide: APP_BASE_HREF, useValue: '/' },
-		{
-			provide: HTTP_INTERCEPTORS,
-			useClass: APIInterceptor,
-			multi: true
-		},
-		{
-			provide: HTTP_INTERCEPTORS,
-			useClass: TokenInterceptor,
-			multi: true
-		}
-	],
+        { provide: APP_BASE_HREF, useValue: '/' },
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: APIInterceptor,
+            multi: true,
+        },
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: TokenInterceptor,
+            multi: true,
+        },
+    ],
   bootstrap: [AppComponent],
 })
 export class AppModule {

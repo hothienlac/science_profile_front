@@ -3,7 +3,7 @@ import {
     HttpRequest,
     HttpHandler,
     HttpEvent,
-    HttpInterceptor
+    HttpInterceptor,
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { StoreService } from '../services/store.service';
@@ -12,7 +12,7 @@ import { StoreService } from '../services/store.service';
 export class TokenInterceptor implements HttpInterceptor {
 
     constructor(
-        private store: StoreService
+        private store: StoreService,
     ) { }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -20,10 +20,10 @@ export class TokenInterceptor implements HttpInterceptor {
 
         request = request.clone({
             setHeaders: {
-                Authorization: `Bearer ${token}`
-            }
+                Authorization: `Bearer ${token}`,
+            },
         });
         return next.handle(request);
     }
-    
+
 }

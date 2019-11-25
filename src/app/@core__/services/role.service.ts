@@ -7,13 +7,13 @@ import { first } from 'rxjs/operators';
 @Injectable()
 export class RoleService {
     constructor(
-        private http: HttpClient
+        private http: HttpClient,
     ) { }
 
     getRoleByName(findInput?: { name: ERoles }): Observable<Role> {
         const data = JSON.stringify({ findInput });
         return this.http.get<Role>(`/api/role`, {
-            params: { data }
+            params: { data },
         });
     }
 

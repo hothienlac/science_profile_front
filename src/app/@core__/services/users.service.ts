@@ -7,11 +7,11 @@ import { first } from 'rxjs/operators';
 export class UsersService {
 
     constructor(
-        private http: HttpClient
+        private http: HttpClient,
     ) { }
 
     getUserById(id: string): Promise<IUser> {
-        return this.http.get<IUser>(`/api/user/${id}`).pipe(first()).toPromise()
+        return this.http.get<IUser>(`/api/user/${id}`).pipe(first()).toPromise();
     }
 
     update(userId: string, updateInput: IUserFindInput) {

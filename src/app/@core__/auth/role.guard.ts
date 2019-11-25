@@ -1,41 +1,35 @@
 import { Injectable } from '@angular/core';
 import {
-	ActivatedRouteSnapshot,
-	CanActivate,
-	Router,
-	RouterStateSnapshot
+    ActivatedRouteSnapshot,
+    CanActivate,
+    Router,
+    RouterStateSnapshot,
 } from '@angular/router';
 import { AuthService } from '../services/auth.service';
-import { first } from 'rxjs/operators';
 
 @Injectable()
 export class RoleGuard implements CanActivate {
-  
-	constructor(
-		private readonly router: Router,
-		private readonly authService: AuthService
-	) {}
 
-	async canActivate(
-		route: ActivatedRouteSnapshot,
-		state: RouterStateSnapshot
-	) {
-		return true; // BACKEND NOT IMPLEMENTED YET
-		
-		const expectedRole = route.data.expectedRole;
-		const hasRole = await this.authService
-			.hasRole(expectedRole)
-			.pipe(first())
-			.toPromise();
+    constructor(
+        private readonly router: Router,
+        private readonly authService: AuthService,
+    ) {}
 
-		if (hasRole) {
-			return true;
-		}
+    async canActivate(
+        route: ActivatedRouteSnapshot,
+        state: RouterStateSnapshot,
+    ) {
+        const expectedRole = route.data.expectedRole;
+        const hasRole = await this.authService.hasRole(expectedRole);
 
-		this.router.navigate(['/auth/login'], {
-			queryParams: { returnUrl: state.url }
-		});
+        if (hasRole) {
+            return true;
+        }
 
-		return false;
-	}
+        this.router.navigate(['/auth/login'], {
+            queryParams: { returnUrl: state.url },
+        });
+
+        return false;
+    }
 }

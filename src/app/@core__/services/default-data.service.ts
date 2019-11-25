@@ -1,8 +1,19 @@
 import { Injectable } from '@angular/core';
-import { IUser, IPersonalInformation, IEducation, ICareer, IForeignLanguage, IExperienceAndResearches, ILatestPublishedResearch, IPublishedResearch, IPublishedResearches, IResearchInterest, IScienceProfile } from '@ngx/models';
+import {
+  IUser,
+  IPersonalInformation,
+  IEducation,
+  ICareer,
+  IForeignLanguage,
+  IExperienceAndResearches,
+  ILatestPublishedResearch,
+  IPublishedResearches,
+  IResearchInterest,
+  IScienceProfile,
+} from '@ngx/models';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DefaultDataService {
 
@@ -26,7 +37,7 @@ export class DefaultDataService {
       career: this.getCareer(),
       foreignLanguages: this.getForeignLanguages(),
       experienceAndResearches: this.getExperienceAndResearches(),
-    }
+    };
   }
 
   getPersonalInformation(): IPersonalInformation {
@@ -50,7 +61,7 @@ export class DefaultDataService {
       bankAccountNumber: '100001164176',
       bank: 'NH TMCP QUOC DAN',
       bankBranch: 'CN LONG AN',
-    }
+    };
   }
 
   getEducation(): IEducation[] {
@@ -66,8 +77,8 @@ export class DefaultDataService {
         university: 'HCMC University of Science',
         major: 'Mathematic',
         degree: 'Bachelor',
-      }
-    ]
+      },
+    ];
   }
 
   getCareer(): ICareer[] {
@@ -108,7 +119,7 @@ export class DefaultDataService {
         address: 'Nguyen Chi Thanh, Distric 10, HCMC',
         position: 'Math Teacher',
       },
-    ]
+    ];
   }
 
   getForeignLanguages(): IForeignLanguage[] {
@@ -118,8 +129,8 @@ export class DefaultDataService {
         reading: 'D',
         writing: 'D',
         speaking: 'D',
-      }
-    ]
+      },
+    ];
   }
 
   getExperienceAndResearches(): IExperienceAndResearches {
@@ -127,7 +138,7 @@ export class DefaultDataService {
       latestPublishedResearches: this.getLatestPublishedResearches(),
       publishedResearches: this.getPublishedResearches(),
       researchInterests: this.getResearchInterest(),
-    }
+    };
   }
 
   ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -159,12 +170,13 @@ export class DefaultDataService {
         role: 'Principal Investigator',
       },
       {
-        project: 'Các tính chất của nghiệm của một số lớp phương trình đạo hàm riêng phi tuyến trong hình học và vật lý',
+        project: `Các tính chất của nghiệm của một số lớp phương trình đạo hàm riêng phi tuyến
+          trong hình học và vật lý`,
         sponsor: 'NAFOSTED',
         time: 'Jun, 2017 - Jun, 2019',
         role: 'Collaborator',
       },
-    ]
+    ];
   }
 
   getPublishedResearches(): IPublishedResearches {
@@ -177,7 +189,8 @@ export class DefaultDataService {
           publisher: 'Transactions of the American Mathematical Society',
           issn_isbn: '0002-9947',
           file: 'Available',
-          note: 'Bài báo đã được nhận đăng trên tạp chí Transactions of the American Mathematical Society. Bản tiền ấn phẩm có thể xem file đính kèm',
+          note: `Bài báo đã được nhận đăng trên tạp chí Transactions of the American Mathematical Society.
+            Bản tiền ấn phẩm có thể xem file đính kèm`,
         },
         {
           authors: 'T. V. Khanh, J. Liu, P. T. Thuc',
@@ -221,7 +234,7 @@ export class DefaultDataService {
           file: 'Available',
           note: 'Award',
         },
-      ]
+      ],
     };
   }
 
@@ -242,8 +255,8 @@ export class DefaultDataService {
         {
           researchInterest: 'Machinelearning and Artificial Intelligence',
         },
-      ]
-      
+      ];
+
       // [
       //   'Partial Differential Equations',
       //   'Complex Analysis',

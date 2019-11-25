@@ -12,12 +12,12 @@ const socialLinks = [
   {
     url: environment.COMPANY_GITHUB_LINK,
     target: '_blank',
-    icon: 'github-outline'
+    icon: 'github-outline',
   },
   {
     url: environment.COMPANY_TWITTER_LINK,
     target: '_blank',
-    icon: 'twitter-outline'
+    icon: 'twitter-outline',
   },
 ];
 
@@ -27,8 +27,8 @@ const socialLinks = [
     ...NbAuthModule.forRoot({
       strategies: [AuthStrategyService.setup({ name: 'email' })],
       forms: {
-        login: { socialLinks }
-      }
+        login: { socialLinks },
+      },
     }).providers,
 
     AuthGuard,
@@ -36,7 +36,7 @@ const socialLinks = [
     AuthStrategyService,
     AuthService,
     StoreService,
-    
-  ]
+
+  ],
 })
 export class AuthModule {}
