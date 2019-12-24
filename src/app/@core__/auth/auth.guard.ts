@@ -21,7 +21,7 @@ export class AuthGuard implements CanActivate {
     ) {
         const isAuthenticated = await this.authService.isAuthenticated();
 
-        console.log(isAuthenticated);
+        console.log('ssd', isAuthenticated);
         if (isAuthenticated) {
             // logged in so return true
             return true;
