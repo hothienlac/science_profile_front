@@ -8,12 +8,16 @@ import { ConfirmService } from '../../util/confirm.service';
 @Component({
   selector: 'ngx-career',
   templateUrl: './career.component.html',
-  styleUrls: ['./career.component.scss']
+  styleUrls: ['./career.component.scss'],
 })
 export class CareerComponent implements OnInit {
 
   settings = {
-    actions: false,
+    actions: {
+      add: true,
+      edit: true,
+      delete: true,
+    },
     add: {
       addButtonContent: '<i class="nb-plus"></i>',
       createButtonContent: '<i class="nb-checkmark"></i>',
@@ -71,9 +75,23 @@ export class CareerComponent implements OnInit {
       this.source.load(this.career)
     });
     dataService.disable$.subscribe((disable) => {
-      this.disabled = disable;
-      this.settings.actions = this.disabled;
-    })
+      if (disable){
+        this.settings.actions = {
+          add: false,
+          edit: false,
+          delete: false,
+        };
+        console.log('disabled');
+      }
+      else {
+        this.settings.actions = {
+          add: false,
+          edit: false,
+          delete: false,
+        };
+        console.log('enabled');
+      }
+    });
   }
 
   ngOnInit() {
