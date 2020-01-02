@@ -1,13 +1,12 @@
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NbAuthModule } from '@nebular/auth';
 import { NbSecurityModule, NbRoleProvider } from '@nebular/security';
 import { of as observableOf } from 'rxjs';
 
 import { throwIfAlreadyLoaded } from './module-import-guard';
 import {
   AnalyticsService,
-  LayoutService
+  LayoutService,
 } from './utils';
 import { AuthModule } from './auth/auth.module';
 
@@ -42,16 +41,16 @@ export const NB_CORE_PROVIDERS = [
     provide: NbRoleProvider, useClass: NbSimpleRoleProvider,
   },
   AnalyticsService,
-  LayoutService
+  LayoutService,
 ];
 
 @NgModule({
   imports: [
     CommonModule,
-    AuthModule
+    AuthModule,
   ],
   exports: [
-    NbAuthModule
+    ,
   ],
   declarations: [],
 })

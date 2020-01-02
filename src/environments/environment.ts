@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
 
-  API_BASE_URL: 'http://localhost:3000',
+  API_BASE_URL: 'http://192.168.83.86:3000',
   COMPANY_NAME: 'TAN TAO UNIVERSITY',
   COMPANY_SITE: 'SCHOOL OF ENGINEERING',
   COMPANY_LINK: 'https://ttu.edu.vn/',

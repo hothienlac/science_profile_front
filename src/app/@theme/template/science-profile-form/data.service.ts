@@ -30,19 +30,15 @@ export class DataService {
   onSaved$ = this.onSaved.asObservable();
 
   setData(data: IScienceProfile) {
-    this.dataSource.next(data)
+    this.dataSource.next(data);
   }
   
   setStatus(disable: boolean) {
-    this.disableSource.next(disable)
+    this.disableSource.next(disable);
   }
 
   currentData(): IScienceProfile {
     return this.data;
-  }
-
-  save() {
-    
   }
 
   constructor(

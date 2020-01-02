@@ -40,7 +40,6 @@ export class ScienceProfileFormComponent implements OnInit {
   }
 
   onSave() {
-    this.dataService.save();
     this.dataService.onSaved$.subscribe((data: IScienceProfile) => {
       this.ScienceProfile = data;
       this.ngOnInit();

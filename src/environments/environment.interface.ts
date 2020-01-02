@@ -12,4 +12,4 @@ export interface IEnvironment {
 	COMPANY_TWITTER_LINK: string;
     COMPANY_LINKEDIN_LINK: string;
 
-};
+}

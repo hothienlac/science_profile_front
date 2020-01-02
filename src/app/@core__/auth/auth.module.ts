@@ -1,42 +1,23 @@
 import { NgModule } from '@angular/core';
-import { NbAuthModule } from '@nebular/auth';
 import { CommonModule } from '@angular/common';
-import { environment } from '../../../environments/environment';
-import { AuthGuard } from './auth.guard';
-import { RoleGuard } from './role.guard';
-import { AuthStrategyService } from './auth-strategy.service';
-import { AuthService } from '../services/auth.service';
-import { StoreService } from '../services/store.service';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { RequirePasswordComponent } from './require-password/require-password.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { AuthComponent } from './auth.component';
 
-const socialLinks = [
-  {
-    url: environment.COMPANY_GITHUB_LINK,
-    target: '_blank',
-    icon: 'github-outline',
-  },
-  {
-    url: environment.COMPANY_TWITTER_LINK,
-    target: '_blank',
-    icon: 'twitter-outline',
-  },
-];
+
 
 @NgModule({
-  imports: [CommonModule, NbAuthModule],
-  providers: [
-    ...NbAuthModule.forRoot({
-      strategies: [AuthStrategyService.setup({ name: 'email' })],
-      forms: {
-        login: { socialLinks },
-      },
-    }).providers,
-
-    AuthGuard,
-    RoleGuard,
-    AuthStrategyService,
-    AuthService,
-    StoreService,
-
+  declarations: [
+    LoginComponent,
+    RegisterComponent,
+    RequirePasswordComponent,
+    ResetPasswordComponent,
+    AuthComponent,
+  ],
+  imports: [
+    CommonModule,
   ],
 })
-export class AuthModule {}
+export class AuthModule { }

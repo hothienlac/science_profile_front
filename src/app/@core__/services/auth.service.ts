@@ -14,7 +14,7 @@ export class AuthService {
 
     isAuthenticated(): Promise<boolean> {
         return this.http
-            .get<boolean>('/')
+            .get<boolean>('/api/auth/authenticated')
             .pipe(first())
             .toPromise();
     }

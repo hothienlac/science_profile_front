@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { ICareer, IScienceProfile } from '@ngx/models';
 import { LocalDataSource } from 'ng2-smart-table';
 import { Subscription } from 'rxjs';
@@ -10,7 +10,7 @@ import { ConfirmService } from '../../util/confirm.service';
   templateUrl: './career.component.html',
   styleUrls: ['./career.component.scss'],
 })
-export class CareerComponent implements OnInit {
+export class CareerComponent implements OnInit, OnDestroy {
 
   settings = {
     actions: {
@@ -67,30 +67,15 @@ export class CareerComponent implements OnInit {
     this.career = [];
     this.Career = this.dataService.data$.subscribe((data: IScienceProfile) => {
       if (data.career) {
-        this.career = data.career
-        console.log('from FL', this.career)
+        this.career = data.career;
+        console.log('from FL', this.career);
       }
       else
         this.career = [];
       this.source.load(this.career)
     });
     dataService.disable$.subscribe((disable) => {
-      if (disable){
-        this.settings.actions = {
-          add: false,
-          edit: false,
-          delete: false,
-        };
-        console.log('disabled');
-      }
-      else {
-        this.settings.actions = {
-          add: false,
-          edit: false,
-          delete: false,
-        };
-        console.log('enabled');
-      }
+      this.disabled = disable;
     });
   }
 
@@ -98,6 +83,18 @@ export class CareerComponent implements OnInit {
   }
 
   onDeleteConfirm(event): void {
+
+    this.confirmService.confirm().subscribe((confirm) => {
+      console.log(confirm);
+      if (confirm)
+        event.confirm.resolve();
+      else
+        event.confirm.reject();
+    });
+
+  }
+
+  onEditConfirm(event): void {
 
     this.confirmService.confirm().subscribe((confirm) => {
       console.log(confirm);
