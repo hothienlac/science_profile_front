@@ -9,7 +9,7 @@ import { MENU_ITEMS, MENU_ITEMS_ADMIN } from './admin-menu';
       <router-outlet></router-outlet>
     </ngx-one-column-layout>
   `,
-  styleUrls: ['./admin.component.scss']
+  styleUrls: ['./admin.component.scss'],
 })
 export class AdminComponent implements OnInit {
 
