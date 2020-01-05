@@ -41,14 +41,14 @@ import { UtilModule } from '../../@theme/template/util/util.module';
   imports: [
     CommonModule,
     UsersRoutingModule,
-    
+
     NbCardModule,
     NbIconModule,
     NbInputModule,
     ThemeModule,
     Ng2SmartTableModule,
     NbAccordionModule,
-    
+
     NbCheckboxModule,
     NbRadioModule,
     NbSelectModule,
@@ -62,8 +62,8 @@ import { UtilModule } from '../../@theme/template/util/util.module';
     UtilModule,
   ],
 
-  providers:[
-    DefaultDataService
+  providers: [
+    DefaultDataService,
   ],
 })
 export class UsersModule { }

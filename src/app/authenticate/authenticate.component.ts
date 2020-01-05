@@ -5,7 +5,11 @@ import { Component, OnInit } from '@angular/core';
   template: `
     <nb-layout>
       <nb-layout-column>
-        <router-outlet></router-outlet>
+        <nb-card status='success' class='mx-auto' style='width: 800px; margin-top: 3rem;'>
+          <nb-card-body class='mx-auto' style='width: 700px'>
+              <router-outlet></router-outlet>
+          </nb-card-body>
+        </nb-card>
       </nb-layout-column>
     </nb-layout>
   `,

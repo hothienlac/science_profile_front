@@ -26,7 +26,7 @@ const routes: Routes = [
                 component: RegisterComponent,
             },
             {
-                path: 'request-pasword',
+                path: 'request-password',
                 component: RequestPasswordComponent,
             },
             {

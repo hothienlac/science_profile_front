@@ -14,7 +14,7 @@ import { MENU_ITEMS, MENU_ITEMS_ADMIN } from './admin-menu';
 export class AdminComponent implements OnInit {
 
   menu = MENU_ITEMS_ADMIN;
-  
+
   constructor() { }
 
   ngOnInit() {
