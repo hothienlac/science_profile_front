@@ -1,15 +1,25 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { first } from 'rxjs/operators';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class AuthenticateService {
-  isAuthenticated() {
-    throw new Error("Method not implemented.");
-  }
-  login(user: { 'email': string; 'password': string; }) {
-    throw new Error("Method not implemented.");
+
+  constructor( private http: HttpClient ) { }
+
+  async isAuthenticated(): Promise<boolean> {
+    return this.http
+            .get<boolean>('/api/auth/authenticated')
+            .pipe(first())
+            .toPromise();
   }
 
-  constructor() { }
+  login(user): Observable<{ token?: string, user: any }> {
+    return this.http.post<{ token?: string, user: any }>(
+            '/api/auth/login',
+            user,
+    );
+  }
+
 }

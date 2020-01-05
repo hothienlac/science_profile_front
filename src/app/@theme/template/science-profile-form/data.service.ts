@@ -18,7 +18,7 @@ export class DataService {
     edit: false,
     delete: false,
   };
-  
+
   data: IScienceProfile = {};
 
   private dataSource = new Subject<IScienceProfile>();
@@ -32,7 +32,7 @@ export class DataService {
   setData(data: IScienceProfile) {
     this.dataSource.next(data);
   }
-  
+
   setStatus(disable: boolean) {
     this.disableSource.next(disable);
   }
@@ -46,7 +46,7 @@ export class DataService {
   ) {
     this.data$.subscribe((data) => {
       this.data = data;
-    })
+    });
   }
 
 }
