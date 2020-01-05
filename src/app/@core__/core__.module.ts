@@ -50,7 +50,7 @@ export const NB_CORE_PROVIDERS = [
     AuthModule,
   ],
   exports: [
-    ,
+    AuthModule,
   ],
   declarations: [],
 })
