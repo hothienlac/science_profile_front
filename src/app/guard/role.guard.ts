@@ -7,7 +7,9 @@ import {
 } from '@angular/router';
 import { Observable } from 'rxjs';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class RoleGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,

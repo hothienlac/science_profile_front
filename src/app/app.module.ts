@@ -22,8 +22,8 @@ import {
 } from '@nebular/theme';
 import { FileUploadModule } from 'ng2-file-upload';
 import { APP_BASE_HREF } from '@angular/common';
-import { APIInterceptor } from './@core__/api.interceptor';
-import { TokenInterceptor } from './@core__/auth/token.interceptor';
+import { APIInterceptor } from './interceptor/api.interceptor';
+import { TokenInterceptor } from './interceptor/token.interceptor';
 
 @NgModule({
   declarations: [AppComponent],

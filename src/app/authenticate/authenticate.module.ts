@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -11,16 +10,13 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { RequestPasswordComponent } from './request-password/request-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
-import { StorageService } from './storage.service';
-import { RoleGuard } from './role.guard';
-import { AuthGuard } from './auth.guard';
 import {
   NbLayoutModule,
   NbCardModule,
   NbCheckboxModule,
   NbButtonModule,
 } from '@nebular/theme';
-import { AuthenticateService } from './authenticate.service';
+import { AuthenticateService } from './service/authenticate.service';
 
 
 
@@ -34,7 +30,6 @@ import { AuthenticateService } from './authenticate.service';
   ],
   imports: [
     CommonModule,
-    HttpClientModule,
     AuthenticateRoutingModule,
     MiscellaneousModule,
 
@@ -45,9 +40,6 @@ import { AuthenticateService } from './authenticate.service';
     NbButtonModule,
   ],
   providers: [
-    StorageService,
-    RoleGuard,
-    AuthGuard,
     AuthenticateService,
   ],
 })

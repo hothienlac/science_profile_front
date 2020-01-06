@@ -4,7 +4,7 @@ import { LocalDataSource } from 'ng2-smart-table';
 import { SmartTableData } from '../../../@core/data/smart-table';
 import { Router, ActivatedRoute } from '@angular/router';
 import { IUser } from '@ngx/models';
-import { DefaultDataService } from 'src/app/@core__/services/default-data.service';
+import { DefaultDataService } from '../../../root-service/default-data.service';
 
 @Component({
   selector: 'ngx-research-table',

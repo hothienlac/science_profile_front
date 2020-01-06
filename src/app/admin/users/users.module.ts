@@ -27,7 +27,6 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import { NewUserComponent } from './new-user/new-user.component';
 import { ArchiveUserComponent } from './archive-user/archive-user.component';
 import { ScienceProfileFormModule } from '../../@theme/template/science-profile-form/science-profile-form.module';
-import { DefaultDataService } from 'src/app/@core__/services/default-data.service';
 import { UtilModule } from '../../@theme/template/util/util.module';
 
 
@@ -60,10 +59,6 @@ import { UtilModule } from '../../@theme/template/util/util.module';
 
     ScienceProfileFormModule,
     UtilModule,
-  ],
-
-  providers: [
-    DefaultDataService,
   ],
 })
 export class UsersModule { }

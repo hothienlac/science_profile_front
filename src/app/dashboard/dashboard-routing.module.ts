@@ -1,26 +1,25 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AdminComponent } from './admin.component';
+import { DashboardComponent } from './dashboard.component';
 import { NotFoundComponent } from '../@theme/template/miscellaneous/not-found/not-found.component';
-import { ERoles } from '@ngx/models';
 
 
 const routes: Routes = [
     {
         path: '',
-        component: AdminComponent,
+        component: DashboardComponent,
         children: [
             {
                 path: '',
-                redirectTo: 'dashboard',
+                redirectTo: 'home',
                 pathMatch: 'full',
             },
             {
-                path: 'dashboard',
+                path: 'home',
                 loadChildren: () =>
-                    import('./dashboard/dashboard.module').then(
-                        (m) => m.DashboardModule,
+                    import('./home/home.module').then(
+                        (m) => m.HomeModule,
                     ),
             },
             {
@@ -101,4 +100,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class AdminRoutingModule { }
+export class DashboardRoutingModule { }

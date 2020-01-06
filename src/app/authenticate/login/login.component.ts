@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthenticateService } from '../authenticate.service';
+import { AuthenticateService } from '../service/authenticate.service';
 import { NbToastrService } from '@nebular/theme';
-import { StorageService } from '../storage.service';
+import { StorageService } from '../../root-service/storage.service';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
     this.authenticate.login(this.user).subscribe((data) => {
       this.toastrService.success(`Hello ${data.user.userName}`);
       this.storageService.token = data.token;
-      this.storageService.userId = data.user.__id;
+      this.storageService.userId = data.user._id;
       // this.router.navigate([`${data.user.role.toLowerCase()}/dashboard`]);
     },
     (error: HttpErrorResponse) => {

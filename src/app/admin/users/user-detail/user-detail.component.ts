@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DefaultDataService } from '../../../@core__/services/default-data.service';
+import { DefaultDataService } from '../../../root-service/default-data.service';
 import { IScienceProfile } from '@ngx/models';
 
 @Component({

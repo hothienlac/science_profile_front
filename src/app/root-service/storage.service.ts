@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { IUser } from '@ngx/models';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class StorageService {
 
   constructor() { }
