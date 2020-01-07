@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AuthenticateService } from '../service/authenticate.service';
 import { NbToastrService } from '@nebular/theme';
 import { StorageService } from '../../root-service/storage.service';
@@ -17,13 +17,20 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private route: ActivatedRoute,
     private authenticate: AuthenticateService,
     private toastrService: NbToastrService,
     private storageService: StorageService,
-  ) { }
+  ) {
+    this.authenticate.isAuthenticated().then((isAuthenticated) => {
+      if (isAuthenticated) {
+        console.log('asdasd');
+        router.navigate([`/dashboard`]);
+      }
+    });
+  }
 
   ngOnInit() {
-    this.authenticate.isAuthenticated();
   }
 
   onSubmit() {
@@ -31,7 +38,10 @@ export class LoginComponent implements OnInit {
       this.toastrService.success(`Hello ${data.user.userName}`);
       this.storageService.token = data.token;
       this.storageService.userId = data.user._id;
-      // this.router.navigate([`${data.user.role.toLowerCase()}/dashboard`]);
+      this.route.queryParams.subscribe(params => {
+        if (params.returnUrl) this.router.navigate([params.returnUrl]);
+        else this.router.navigate([`/dashboard`]);
+      });
     },
     (error: HttpErrorResponse) => {
       if (error.status === 401) {

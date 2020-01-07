@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { DashboardComponent } from './dashboard.component';
 import { NotFoundComponent } from '../@theme/template/miscellaneous/not-found/not-found.component';
+import { ERoles } from '@ngx/models';
 
 
 const routes: Routes = [
@@ -62,6 +63,13 @@ const routes: Routes = [
                 loadChildren: () =>
                     import('./users/users.module').then(
                         (m) => m.UsersModule,
+                    ),
+            },
+            {
+                path: 'profile',
+                loadChildren: () =>
+                    import('./profile/profile.module').then(
+                        (m) => m.ProfileModule,
                     ),
             },
             {

@@ -15,6 +15,7 @@ import {
   NbCardModule,
   NbCheckboxModule,
   NbButtonModule,
+  NbSpinnerModule,
 } from '@nebular/theme';
 import { AuthenticateService } from './service/authenticate.service';
 
@@ -38,6 +39,7 @@ import { AuthenticateService } from './service/authenticate.service';
     NbCardModule,
     NbCheckboxModule,
     NbButtonModule,
+    NbSpinnerModule,
   ],
   providers: [
     AuthenticateService,

@@ -24,6 +24,7 @@ import { FileUploadModule } from 'ng2-file-upload';
 import { APP_BASE_HREF } from '@angular/common';
 import { APIInterceptor } from './interceptor/api.interceptor';
 import { TokenInterceptor } from './interceptor/token.interceptor';
+import { AuthenticateService } from './authenticate';
 
 @NgModule({
   declarations: [AppComponent],
@@ -48,17 +49,18 @@ import { TokenInterceptor } from './interceptor/token.interceptor';
     FileUploadModule,
   ],
   providers: [
-        { provide: APP_BASE_HREF, useValue: '/' },
-        {
-            provide: HTTP_INTERCEPTORS,
-            useClass: APIInterceptor,
-            multi: true,
-        },
-        {
-            provide: HTTP_INTERCEPTORS,
-            useClass: TokenInterceptor,
-            multi: true,
-        },
+      AuthenticateService,
+      { provide: APP_BASE_HREF, useValue: '/' },
+      {
+        provide: HTTP_INTERCEPTORS,
+        useClass: APIInterceptor,
+        multi: true,
+      },
+      {
+        provide: HTTP_INTERCEPTORS,
+        useClass: TokenInterceptor,
+        multi: true,
+      },
     ],
   bootstrap: [AppComponent],
 })
