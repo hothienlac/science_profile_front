@@ -28,12 +28,12 @@ const routes: Routes = [
         path: 'new-user',
         component: NewUserComponent,
       },
-    ]
-  }
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class UsersRoutingModule { }

@@ -9,7 +9,7 @@ import { SettingComponent } from './setting.component';
   declarations: [SettingComponent],
   imports: [
     CommonModule,
-    SettingRoutingModule
-  ]
+    SettingRoutingModule,
+  ],
 })
 export class SettingModule { }

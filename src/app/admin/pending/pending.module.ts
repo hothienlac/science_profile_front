@@ -9,7 +9,7 @@ import { PendingComponent } from './pending.component';
   declarations: [PendingComponent],
   imports: [
     CommonModule,
-    PendingRoutingModule
-  ]
+    PendingRoutingModule,
+  ],
 })
 export class PendingModule { }

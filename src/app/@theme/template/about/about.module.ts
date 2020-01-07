@@ -15,7 +15,7 @@ import { AboutRoutingModule } from './about-routing.module';
         NbInputModule,
     ],
     declarations: [
-        AboutComponent   
-    ]
+        AboutComponent,
+    ],
 })
 export class AboutModule { }

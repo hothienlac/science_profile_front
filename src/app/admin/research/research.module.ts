@@ -49,6 +49,6 @@ import { NewComponent } from './new/new.component';
     NbUserModule,
     NbDatepickerModule,
     ngFormsModule,
-  ]
+  ],
 })
 export class ResearchModule { }

@@ -51,4 +51,4 @@ export const MENU_ITEMS_ADMIN: NbMenuItem[] = [
     link: '/admin/users',
     home: true,
   },
-]
+];

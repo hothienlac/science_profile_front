@@ -11,4 +11,4 @@ export interface IExperienceAndResearches {
     publishedResearches?: IPublishedResearches;
     researchInterests?: IResearchInterest[];
 }
-  
+

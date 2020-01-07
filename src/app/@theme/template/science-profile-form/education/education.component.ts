@@ -8,7 +8,7 @@ import { ConfirmService } from '../../util/confirm.service';
 @Component({
   selector: 'ngx-education',
   templateUrl: './education.component.html',
-  styleUrls: ['./education.component.scss']
+  styleUrls: ['./education.component.scss'],
 })
 export class EducationComponent implements OnInit {
 
@@ -64,21 +64,21 @@ export class EducationComponent implements OnInit {
     this.education = [];
     this.Education = this.dataService.data$.subscribe((data: IScienceProfile) => {
       if (data.education) {
-        this.education = data.education
-        console.log('from E', this.education)
+        this.education = data.education;
+        console.log('from E', this.education);
       }
       else
         this.education = [];
-      this.source.load(this.education)
+      this.source.load(this.education);
     });
     dataService.disable$.subscribe((disable: boolean) => {
       this.disabled = disable;
       if (disable == true)
-        this.settings.actions = this.dataService.notActive
+        this.settings.actions = this.dataService.notActive;
       else
-        this.settings.actions = this.dataService.active
-      console.log(this.settings.actions)
-    })
+        this.settings.actions = this.dataService.active;
+      console.log(this.settings.actions);
+    });
   }
 
   ngOnInit() {
@@ -92,7 +92,7 @@ export class EducationComponent implements OnInit {
         event.confirm.resolve();
       else
         event.confirm.reject();
-    })
+    });
   }
 
   ngOnDestroy(): void {

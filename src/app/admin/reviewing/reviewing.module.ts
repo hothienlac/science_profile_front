@@ -9,7 +9,7 @@ import { ReviewingComponent } from './reviewing.component';
   declarations: [ReviewingComponent],
   imports: [
     CommonModule,
-    ReviewingRoutingModule
-  ]
+    ReviewingRoutingModule,
+  ],
 })
 export class ReviewingModule { }

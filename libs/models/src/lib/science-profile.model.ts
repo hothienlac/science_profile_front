@@ -3,7 +3,7 @@ import {
     IEducation,
     ICareer,
     IForeignLanguage,
-    IExperienceAndResearches
+    IExperienceAndResearches,
 } from './science-profile';
 import { IBaseEntityModel } from './base-entity.model';
 

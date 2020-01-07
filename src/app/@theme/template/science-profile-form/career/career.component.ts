@@ -72,7 +72,7 @@ export class CareerComponent implements OnInit, OnDestroy {
       }
       else
         this.career = [];
-      this.source.load(this.career)
+      this.source.load(this.career);
     });
     dataService.disable$.subscribe((disable) => {
       this.disabled = disable;
@@ -102,7 +102,7 @@ export class CareerComponent implements OnInit, OnDestroy {
         event.confirm.resolve();
       else
         event.confirm.reject();
-    })
+    });
   }
 
   ngOnDestroy(): void {

@@ -10,7 +10,7 @@ const monthNames = [
     'September',
     'October',
     'November',
-    'December'
+    'December',
 ];
 
 export { monthNames };

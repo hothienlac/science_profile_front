@@ -2,7 +2,7 @@ import { Component,
   OnInit,
   Input,
   Output,
-  EventEmitter
+  EventEmitter,
 } from '@angular/core';
 import { IScienceProfile } from '@ngx/models';
 import { DataService } from './data.service';
@@ -21,15 +21,15 @@ export class ScienceProfileFormComponent implements OnInit {
 
   editing: boolean = false;
   backupData: IScienceProfile;
-  
+
   constructor(
     private dataService: DataService,
   ) {
   }
 
   ngOnInit() {
-    console.log('From SPF', this.ScienceProfile)
-    this.dataService.setData(this.ScienceProfile)
+    console.log('From SPF', this.ScienceProfile);
+    this.dataService.setData(this.ScienceProfile);
     this.dataService.setStatus(false);
   }
 

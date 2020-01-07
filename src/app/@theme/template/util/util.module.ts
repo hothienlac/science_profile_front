@@ -33,7 +33,7 @@ import {
     NbTooltipModule,
     NbWindowModule,
   ],
-  providers: [   
+  providers: [
     ConfirmService,
   ],
   entryComponents: [

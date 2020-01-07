@@ -48,7 +48,7 @@ export class ResearchTableComponent {
     private activatedRoute: ActivatedRoute,
     private defaultDataService: DefaultDataService,
     ) {
-    const data : IUser[] = defaultDataService.getUsers();
+    const data: IUser[] = defaultDataService.getUsers();
     this.source.load(data);
   }
 
@@ -63,7 +63,7 @@ export class ResearchTableComponent {
   rowSelect(event: { data: { id: any; }; }) {
     this.router.navigate([`./detail/${event.data.id}`], {relativeTo: this.activatedRoute});
   }
-  
+
   newUser(){
     this.router.navigate(['./new-user'], {relativeTo: this.activatedRoute});
   }

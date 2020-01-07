@@ -15,7 +15,7 @@ import { HelpRoutingModule } from './help-routing.module';
         NbInputModule,
     ],
     declarations: [
-        HelpComponent   
-    ]
+        HelpComponent,
+    ],
 })
 export class HelpModule { }

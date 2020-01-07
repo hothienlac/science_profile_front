@@ -8,9 +8,9 @@ import { LocalDataSource } from 'ng2-smart-table';
 @Component({
   selector: 'ngx-experience-and-reserches',
   templateUrl: './experience-and-reserches.component.html',
-  styleUrls: ['./experience-and-reserches.component.scss']
+  styleUrls: ['./experience-and-reserches.component.scss'],
 })
-export class ExperienceAndReserchesComponent implements OnInit {  
+export class ExperienceAndReserchesComponent implements OnInit {
 
   settings = {
 
@@ -128,9 +128,9 @@ export class ExperienceAndReserchesComponent implements OnInit {
       },
     },
 
-  }
+  };
 
-  
+
   source = {
     interests: new LocalDataSource(),
     latestPublishedResearches: new LocalDataSource(),
@@ -141,8 +141,8 @@ export class ExperienceAndReserchesComponent implements OnInit {
       nationalPaper: new LocalDataSource(),
       conferenceReports: new LocalDataSource(),
       other: new LocalDataSource(),
-    }
-  }
+    },
+  };
 
   ExperienceAndResearches: Subscription;
   experienceAndResearches: IExperienceAndResearches;
@@ -156,7 +156,7 @@ export class ExperienceAndReserchesComponent implements OnInit {
     this.ExperienceAndResearches = this.dataService.data$.subscribe((data: IScienceProfile) => {
       if (data.experienceAndResearches) {
 
-        this.experienceAndResearches = data.experienceAndResearches
+        this.experienceAndResearches = data.experienceAndResearches;
         this.source.interests.load(this.experienceAndResearches.researchInterests);
 
         this.source.latestPublishedResearches.load(this.experienceAndResearches.latestPublishedResearches);
@@ -177,7 +177,7 @@ export class ExperienceAndReserchesComponent implements OnInit {
       this.settings.interests.actions = disable;
       this.settings.latestPublishedResearches.actions = disable;
       this.settings.publishedResearches.actions = disable;
-    })
+    });
   }
 
   onDeleteConfirm(event): void {
@@ -187,7 +187,7 @@ export class ExperienceAndReserchesComponent implements OnInit {
         event.confirm.resolve();
       else
         event.confirm.reject();
-    })
+    });
   }
 
   ngOnInit() {

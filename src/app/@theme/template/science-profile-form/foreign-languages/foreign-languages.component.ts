@@ -9,7 +9,7 @@ import { ConfirmService } from '../../util/confirm.service';
 @Component({
   selector: 'ngx-foreign-languages',
   templateUrl: './foreign-languages.component.html',
-  styleUrls: ['./foreign-languages.component.scss']
+  styleUrls: ['./foreign-languages.component.scss'],
 })
 export class ForeignLanguagesComponent implements OnInit {
 
@@ -69,12 +69,12 @@ export class ForeignLanguagesComponent implements OnInit {
       }
       else
         this.foreignLanguages = [];
-      this.source.load(this.foreignLanguages)
+      this.source.load(this.foreignLanguages);
     });
     dataService.disable$.subscribe((disable) => {
       this.disabled = disable;
       this.settings.actions = this.disabled;
-    })
+    });
   }
 
   ngOnInit() {
@@ -87,7 +87,7 @@ export class ForeignLanguagesComponent implements OnInit {
         event.confirm.resolve();
       else
         event.confirm.reject();
-    })
+    });
   }
   ngOnDestroy(): void {
     this.ForeignLanguages.unsubscribe();

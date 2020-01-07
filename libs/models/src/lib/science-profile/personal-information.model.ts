@@ -8,13 +8,13 @@ export interface IPersonalInformation {
   fullName?: string;
   dateOfBirth?: string;
   degree?:
-    "Bachelor" |
-    "Master" |
-    "Doctor" |
-    "Assistant Professor" |
-    "Associate Professor" |
-    "Professor";
-  gender?: "Male" | "Female";
+    'Bachelor' |
+    'Master' |
+    'Doctor' |
+    'Assistant Professor' |
+    'Associate Professor' |
+    'Professor';
+  gender?: 'Male' | 'Female';
   currentPosition?: string;
   idCardNumber?: string;
   department?: string;

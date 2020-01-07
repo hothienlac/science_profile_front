@@ -10,13 +10,13 @@ export class ConfirmService {
 
   confirm(): Observable<boolean> {
     return new Observable((observer) => {
-      this.dialogService.open(ConfirmComponent, {closeOnBackdropClick: false, closeOnEsc: false,})
+      this.dialogService.open(ConfirmComponent, {closeOnBackdropClick: false, closeOnEsc: false})
         .onClose.subscribe((confirm) => {
           observer.next(confirm);
           observer.complete();
           return {unsubscribe() {}};
       });
-    })
+    });
   }
 
 }

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { FormsModule, ReactiveFormsModule, } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import {
   NbCardModule,
@@ -51,7 +51,7 @@ import { UtilModule } from '../util/util.module';
 
     Ng2SmartTableModule,
     ThemeModule,
-    
+
     FormsModule,
     ReactiveFormsModule,
     UtilModule,
@@ -67,7 +67,7 @@ import { UtilModule } from '../util/util.module';
     DataService,
   ],
   exports: [
-    ScienceProfileFormComponent
+    ScienceProfileFormComponent,
   ],
 })
 export class ScienceProfileFormModule { }

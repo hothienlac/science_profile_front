@@ -3,5 +3,5 @@ import { AnalyticsService } from './analytics.service';
 
 export {
   LayoutService,
-  AnalyticsService
+  AnalyticsService,
 };

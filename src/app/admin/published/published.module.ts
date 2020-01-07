@@ -9,7 +9,7 @@ import { PublishedComponent } from './published.component';
   declarations: [PublishedComponent],
   imports: [
     CommonModule,
-    PublishedRoutingModule
-  ]
+    PublishedRoutingModule,
+  ],
 })
 export class PublishedModule { }

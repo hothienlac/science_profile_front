@@ -26,12 +26,12 @@ const routes: Routes = [
         path: 'new',
         component: NewComponent,
       },
-    ]
-  }
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class ResearchRoutingModule { }

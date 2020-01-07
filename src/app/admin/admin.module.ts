@@ -20,6 +20,6 @@ import { DetailComponent } from './research/detail/detail.component';
     NbMenuModule,
     ThemeModule,
     MiscellaneousModule,
-  ]
+  ],
 })
 export class AdminModule { }
