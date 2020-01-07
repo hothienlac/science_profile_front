@@ -21,7 +21,6 @@ export class PersonalInformationComponent implements OnInit, OnDestroy {
     this.PersonalInformation = this.dataService.data$.subscribe((data: IScienceProfile) => {
       if (data.personalInformation) {
         this.personalInformation = data.personalInformation;
-        console.log('from PI', this.personalInformation);
       } else
         this.personalInformation = {};
     });

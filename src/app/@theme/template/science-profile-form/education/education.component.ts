@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { IEducation, IScienceProfile } from '@ngx/models';
 import { LocalDataSource } from 'ng2-smart-table';
 import { Subscription } from 'rxjs';
@@ -10,7 +10,7 @@ import { ConfirmService } from '../../util/confirm.service';
   templateUrl: './education.component.html',
   styleUrls: ['./education.component.scss'],
 })
-export class EducationComponent implements OnInit {
+export class EducationComponent implements OnInit, OnDestroy {
 
 
   settings = {
@@ -65,19 +65,15 @@ export class EducationComponent implements OnInit {
     this.Education = this.dataService.data$.subscribe((data: IScienceProfile) => {
       if (data.education) {
         this.education = data.education;
-        console.log('from E', this.education);
-      }
-      else
-        this.education = [];
+      } else this.education = [];
       this.source.load(this.education);
     });
     dataService.disable$.subscribe((disable: boolean) => {
       this.disabled = disable;
-      if (disable == true)
+      if (disable === true)
         this.settings.actions = this.dataService.notActive;
       else
         this.settings.actions = this.dataService.active;
-      console.log(this.settings.actions);
     });
   }
 
@@ -86,8 +82,7 @@ export class EducationComponent implements OnInit {
 
   onDeleteConfirm(event): void {
 
-    this.confirmService.confirm().subscribe((confirm) => {
-      console.log(confirm);
+    this.confirmService.confirm('Are you sure to Delete?').subscribe((confirm) => {
       if (confirm)
         event.confirm.resolve();
       else

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { IForeignLanguage, IScienceProfile } from '@ngx/models';
 import { Subscription } from 'rxjs';
 import { DataService } from '../data.service';
@@ -11,7 +11,7 @@ import { ConfirmService } from '../../util/confirm.service';
   templateUrl: './foreign-languages.component.html',
   styleUrls: ['./foreign-languages.component.scss'],
 })
-export class ForeignLanguagesComponent implements OnInit {
+export class ForeignLanguagesComponent implements OnInit, OnDestroy {
 
   settings = {
     actions: false,
@@ -65,10 +65,7 @@ export class ForeignLanguagesComponent implements OnInit {
     this.ForeignLanguages = this.dataService.data$.subscribe((data: IScienceProfile) => {
       if (data.personalInformation) {
         this.foreignLanguages = data.foreignLanguages;
-        console.log('from FL', this.foreignLanguages);
-      }
-      else
-        this.foreignLanguages = [];
+      } else this.foreignLanguages = [];
       this.source.load(this.foreignLanguages);
     });
     dataService.disable$.subscribe((disable) => {
@@ -81,8 +78,7 @@ export class ForeignLanguagesComponent implements OnInit {
   }
 
   onDeleteConfirm(event): void {
-    this.confirmService.confirm().subscribe((confirm) => {
-      console.log(confirm);
+    this.confirmService.confirm('Are you sure to Delete?').subscribe((confirm) => {
       if (confirm)
         event.confirm.resolve();
       else

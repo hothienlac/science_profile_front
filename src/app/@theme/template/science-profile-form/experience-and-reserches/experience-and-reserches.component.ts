@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { IExperienceAndResearches, IScienceProfile, IResearchInterest, ILatestPublishedResearch } from '@ngx/models';
 import { Subscription } from 'rxjs';
 import { DataService } from '../data.service';
@@ -10,7 +10,7 @@ import { LocalDataSource } from 'ng2-smart-table';
   templateUrl: './experience-and-reserches.component.html',
   styleUrls: ['./experience-and-reserches.component.scss'],
 })
-export class ExperienceAndReserchesComponent implements OnInit {
+export class ExperienceAndReserchesComponent implements OnInit, OnDestroy {
 
   settings = {
 
@@ -157,17 +157,20 @@ export class ExperienceAndReserchesComponent implements OnInit {
       if (data.experienceAndResearches) {
 
         this.experienceAndResearches = data.experienceAndResearches;
-        this.source.interests.load(this.experienceAndResearches.researchInterests);
-
-        this.source.latestPublishedResearches.load(this.experienceAndResearches.latestPublishedResearches);
-
-        this.source.publishedResearches.ISIPaper.load(this.experienceAndResearches.publishedResearches.ISIPaper);
-        this.source.publishedResearches.otherInternationalPaper.load(this.experienceAndResearches.publishedResearches.otherInternationalPaper);
-        this.source.publishedResearches.nationalPaper.load(this.experienceAndResearches.publishedResearches.nationalPaper);
-        this.source.publishedResearches.conferenceReports.load(this.experienceAndResearches.publishedResearches.conferenceReports);
-        this.source.publishedResearches.other.load(this.experienceAndResearches.publishedResearches.other);
-
-        console.log('from E&R', this.experienceAndResearches);
+        this.source.interests
+            .load(this.experienceAndResearches.researchInterests);
+        this.source.latestPublishedResearches
+            .load(this.experienceAndResearches.latestPublishedResearches);
+        this.source.publishedResearches.ISIPaper
+            .load(this.experienceAndResearches.publishedResearches.ISIPaper);
+        this.source.publishedResearches.otherInternationalPaper
+            .load(this.experienceAndResearches.publishedResearches.otherInternationalPaper);
+        this.source.publishedResearches.nationalPaper
+            .load(this.experienceAndResearches.publishedResearches.nationalPaper);
+        this.source.publishedResearches.conferenceReports
+            .load(this.experienceAndResearches.publishedResearches.conferenceReports);
+        this.source.publishedResearches.other
+            .load(this.experienceAndResearches.publishedResearches.other);
       }
       else
         this.experienceAndResearches = {};
@@ -181,8 +184,7 @@ export class ExperienceAndReserchesComponent implements OnInit {
   }
 
   onDeleteConfirm(event): void {
-    this.confirmService.confirm().subscribe((confirm) => {
-      console.log(confirm);
+    this.confirmService.confirm('Are you sure to Delete?').subscribe((confirm) => {
       if (confirm)
         event.confirm.resolve();
       else

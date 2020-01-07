@@ -68,10 +68,7 @@ export class CareerComponent implements OnInit, OnDestroy {
     this.Career = this.dataService.data$.subscribe((data: IScienceProfile) => {
       if (data.career) {
         this.career = data.career;
-        console.log('from FL', this.career);
-      }
-      else
-        this.career = [];
+      } else this.career = [];
       this.source.load(this.career);
     });
     dataService.disable$.subscribe((disable) => {
@@ -84,8 +81,7 @@ export class CareerComponent implements OnInit, OnDestroy {
 
   onDeleteConfirm(event): void {
 
-    this.confirmService.confirm().subscribe((confirm) => {
-      console.log(confirm);
+    this.confirmService.confirm('Are you sure to Delete?').subscribe((confirm) => {
       if (confirm)
         event.confirm.resolve();
       else
@@ -96,8 +92,7 @@ export class CareerComponent implements OnInit, OnDestroy {
 
   onEditConfirm(event): void {
 
-    this.confirmService.confirm().subscribe((confirm) => {
-      console.log(confirm);
+    this.confirmService.confirm('Are you sure to Edit?').subscribe((confirm) => {
       if (confirm)
         event.confirm.resolve();
       else

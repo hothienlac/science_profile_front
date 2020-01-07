@@ -26,6 +26,7 @@ import { UserTableComponent } from './user-table/user-table.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { NewUserComponent } from './new-user/new-user.component';
 import { ArchiveUserComponent } from './archive-user/archive-user.component';
+
 import { ScienceProfileFormModule } from '../../@theme/template/science-profile-form/science-profile-form.module';
 import { UtilModule } from '../../@theme/template/util/util.module';
 

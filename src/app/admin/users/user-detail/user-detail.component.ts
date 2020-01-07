@@ -15,8 +15,6 @@ export class UserDetailComponent implements OnInit {
     private defaultDataService: DefaultDataService,
   ) {
     this.scienceProfile = this.defaultDataService.getScienceProfile();
-
-    console.log(this.scienceProfile, 'from detail');
   }
 
 

@@ -24,7 +24,6 @@ export class LoginComponent implements OnInit {
   ) {
     this.authenticate.isAuthenticated().then((isAuthenticated) => {
       if (isAuthenticated) {
-        console.log('asdasd');
         router.navigate([`/dashboard`]);
       }
     });

@@ -28,7 +28,6 @@ export class ScienceProfileFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('From SPF', this.ScienceProfile);
     this.dataService.setData(this.ScienceProfile);
     this.dataService.setStatus(false);
   }
