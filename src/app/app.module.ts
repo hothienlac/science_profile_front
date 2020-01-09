@@ -25,6 +25,7 @@ import { APP_BASE_HREF } from '@angular/common';
 import { APIInterceptor } from './interceptor/api.interceptor';
 import { TokenInterceptor } from './interceptor/token.interceptor';
 import { AuthenticateService } from './authenticate';
+import { MiscellaneousModule } from './@theme/template/miscellaneous/miscellaneous.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -47,6 +48,7 @@ import { AuthenticateService } from './authenticate';
     }),
     CoreModule.forRoot(),
     FileUploadModule,
+    MiscellaneousModule,
   ],
   providers: [
       AuthenticateService,

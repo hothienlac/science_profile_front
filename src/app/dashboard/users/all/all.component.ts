@@ -3,9 +3,9 @@ import { LocalDataSource } from 'ng2-smart-table';
 
 import { Router, ActivatedRoute } from '@angular/router';
 import { IUser } from '@ngx/models';
-import { DefaultDataService } from '../../../root-service/default-data.service';
 
 import { ConfirmService } from '../../../@theme/template/util/confirm.service';
+import { UsersService } from '../users.service';
 
 @Component({
   selector: 'ngx-all',
@@ -46,10 +46,10 @@ export class AllComponent {
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private defaultDataService: DefaultDataService,
     private confirmService: ConfirmService,
+    private usersService: UsersService,
     ) {
-    const data: IUser[] = defaultDataService.getUsers();
+    const data: IUser[] = usersService.getAllUser();
     this.source.load(data);
   }
 
@@ -60,20 +60,14 @@ export class AllComponent {
       else
         event.confirm.reject();
     });
-
-    if (window.confirm('Are you sure you want to delete?')) {
-      event.confirm.resolve();
-    } else {
-      event.confirm.reject();
-    }
   }
 
   rowSelect(event: { data: { id: any; }; }) {
-    this.router.navigate([`./detail/${event.data.id}`], {relativeTo: this.activatedRoute});
+    this.router.navigate([`../detail/${event.data.id}`], {relativeTo: this.activatedRoute});
   }
 
   newUser() {
-    this.router.navigate(['./new-user'], {relativeTo: this.activatedRoute});
+    this.router.navigate(['../new'], {relativeTo: this.activatedRoute});
   }
 
 }

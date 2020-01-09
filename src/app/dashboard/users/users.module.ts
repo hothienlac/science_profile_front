@@ -26,11 +26,12 @@ import { UsersRoutingModule } from './users-routing.module';
 import { AllComponent } from './all/all.component';
 import { DetailComponent } from './detail/detail.component';
 import { NewComponent } from './new/new.component';
-import { RequestComponent } from './request/request.component';
 
 
 import { ScienceProfileFormModule } from '../../@theme/template/science-profile-form/science-profile-form.module';
 import { UtilModule } from '../../@theme/template/util/util.module';
+import { MiscellaneousModule } from 'src/app/@theme/template/miscellaneous/miscellaneous.module';
+import { UsersService } from './users.service';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,9 @@ import { UtilModule } from '../../@theme/template/util/util.module';
     AllComponent,
     DetailComponent,
     NewComponent,
-    RequestComponent,
+  ],
+  providers: [
+    UsersService,
   ],
   imports: [
     CommonModule,
@@ -63,6 +66,8 @@ import { UtilModule } from '../../@theme/template/util/util.module';
 
     ScienceProfileFormModule,
     UtilModule,
+
+    MiscellaneousModule,
   ],
 })
 export class UsersModule { }

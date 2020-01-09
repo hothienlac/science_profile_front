@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { IScienceProfile } from '@ngx/models';
+import { UsersService } from '../users.service';
 
 @Component({
   selector: 'ngx-detail',
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.scss']
 })
-export class DetailComponent implements OnInit {
+export class DetailComponent {
 
-  constructor() { }
+  scienceProfile: IScienceProfile;
 
-  ngOnInit() {
+  constructor(
+    private usersService: UsersService,
+  ) {
+    this.scienceProfile = this.usersService.getScienceProfile();
   }
 
 }

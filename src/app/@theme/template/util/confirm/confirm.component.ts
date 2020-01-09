@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NbDialogRef } from '@nebular/theme';
-import { ConfirmService } from '../confirm.service';
 
 @Component({
   selector: 'ngx-confirm',
@@ -9,11 +8,10 @@ import { ConfirmService } from '../confirm.service';
 })
 export class ConfirmComponent {
 
-  private content: string;
+  private content: string = 'abc';
   constructor(
     protected ref: NbDialogRef<ConfirmComponent>,
-    protected _content: ConfirmService) {
-      this.content = this._content.content;
+  ) {
   }
 
   cancel() {

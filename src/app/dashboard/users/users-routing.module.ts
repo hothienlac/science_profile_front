@@ -5,7 +5,6 @@ import { UsersComponent } from './users.component';
 import { AllComponent } from './all/all.component';
 import { NewComponent } from './new/new.component';
 import { DetailComponent } from './detail/detail.component';
-import { RequestComponent } from './request/request.component';
 import { NotFoundComponent } from 'src/app/@theme/template/miscellaneous/not-found/not-found.component';
 
 
@@ -30,10 +29,6 @@ const routes: Routes = [
       {
         path: 'detail',
         component: DetailComponent,
-      },
-      {
-        path: 'request',
-        component: RequestComponent,
       },
       {
         path: '**',
