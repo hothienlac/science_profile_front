@@ -22,4 +22,8 @@ export class AuthenticateService {
     );
   }
 
+  hasRole(roles: [any]): Observable<boolean> {
+    return this.http.get<boolean>(`/api/auth/role`, { params: { roles } });
+  }
+
 }

@@ -4,17 +4,40 @@ import {
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
   UrlTree,
+  Router,
 } from '@angular/router';
 import { Observable } from 'rxjs';
+import { AuthenticateService } from '../authenticate';
+import { first } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RoleGuard implements CanActivate {
-  canActivate(
+
+  constructor(
+    private readonly router: Router,
+    private readonly authenticateService: AuthenticateService,
+  ) {}
+
+  async canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot,
-    ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return true;
+  ): Promise<boolean | UrlTree> {
+    const expectedRole = next.data.expectedRole;
+    const hasRole = await this.authenticateService
+      .hasRole(expectedRole)
+      .pipe(first())
+      .toPromise();
+
+    if (hasRole) {
+      return true;
+    }
+
+    this.router.navigate(['/auth/login'], {
+      queryParams: { returnUrl: state.url },
+    });
+
+    return false;
   }
 }

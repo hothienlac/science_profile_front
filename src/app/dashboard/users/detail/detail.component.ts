@@ -14,7 +14,11 @@ export class DetailComponent {
   constructor(
     private usersService: UsersService,
   ) {
-    this.scienceProfile = this.usersService.getScienceProfile();
+    this.scienceProfile = this.usersService.getScienceProfile('');
+  }
+
+  onSave($event) {
+    console.log($event);
   }
 
 }

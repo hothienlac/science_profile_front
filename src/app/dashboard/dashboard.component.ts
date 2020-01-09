@@ -1,5 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MENU_ITEMS } from './menu';
+import { AuthenticateService } from '../authenticate';
+import { StorageService } from '../root-service/storage.service';
+import { NbMenuItem } from '@nebular/theme';
+import { Subject } from 'rxjs';
+import { Router } from '@angular/router';
+import { ERoles } from '@ngx/models';
+import { first, takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'ngx-dashboard',
@@ -11,13 +18,34 @@ import { MENU_ITEMS } from './menu';
 `,
   styleUrls: ['./dashboard.component.scss'],
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, OnDestroy {
+
+  basicMenu: NbMenuItem[];
+  adminMenu: NbMenuItem[];
+  private _ngDestroy$ = new Subject<void>();
+  isAdmin: boolean;
 
   menu = MENU_ITEMS;
 
-  constructor() { }
+  constructor(
+    private authenticateService: AuthenticateService,
+  ) {}
 
-  ngOnInit() {
+  async ngOnInit() {
+    await this.checkForAdmin();
+  }
+
+  async checkForAdmin() {
+    this.isAdmin = await this.authenticateService
+      .hasRole([ERoles.ADMIN])
+      .pipe(first())
+      .pipe(takeUntil(this._ngDestroy$))
+      .toPromise();
+  }
+
+  ngOnDestroy() {
+    this._ngDestroy$.next();
+    this._ngDestroy$.complete();
   }
 
 }
