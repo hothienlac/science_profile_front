@@ -1,0 +1,177 @@
+<form>
+
+  <div class="row show-grid">
+      <div class="col-md-7">
+
+          <div class="form-group row">
+              <label for="fullName" class="label col-sm-3 col-form-label">Full Name</label>
+              <div class="col-sm-9">
+                  <input type="text" nbInput fullWidth id="fullName" placeholder="Full Name" [(ngModel)]="personalInformation.fullName" name="fullName" [(disabled)]="disabled">
+              </div>
+          </div>
+
+          <div class="form-group row">
+                  <label class="label col-sm-3 col-form-label">Degree</label>
+                  <div class="col-sm-9">
+                      <nb-select fullWidth [(ngModel)]="personalInformation.degree" name="degree" [(disabled)]="disabled">
+                          <nb-option value="Bachelor"                 >Bachelor</nb-option>
+                          <nb-option value="Master"                   >Master</nb-option>
+                          <nb-option value="Doctor"                   >Doctor</nb-option>
+                          <nb-option value="Assistant Professor"      >Assistant Professor</nb-option>
+                          <nb-option value="Associate Professor"      >Associate Professor</nb-option>
+                          <nb-option value="Professor"                >Professor</nb-option>
+                      </nb-select>
+                  </div>
+          </div>
+
+          <div class="form-group row">
+              <label for="currentPosition" class="label col-sm-3 col-form-label">Current Possition</label>
+              <div class="col-sm-9">
+                  <input type="text" nbInput fullWidth id="currentPosition" placeholder="Current Possition" [(ngModel)]="personalInformation.currentPosition" name="currentPosition" [(disabled)]="disabled">
+              </div>
+          </div>
+          
+      </div>
+
+      <div class="col-md-5">
+
+          <div class="form-group row">
+              <label for="dateOfBirth" class="label col-sm-5 col-form-label">Date of Birth</label>
+              <div class="col-sm-7">
+                  <input nbInput fullWidth id="dateOfBirth" placeholder="Date of Birth" [nbDatepicker]="formpicker" [(ngModel)]="personalInformation.dateOfBirth" name="dateOfBirth" [(disabled)]="disabled">
+                  <nb-datepicker #formpicker></nb-datepicker>
+              </div>
+          </div>
+          <div class="form-group row">
+              <label class="label col-sm-5 col-form-label">Gender</label>
+              <div class="col-sm-7">
+                  <nb-select fullWidth [(ngModel)]="personalInformation.gender" name="gender" [(disabled)]="disabled">
+                      <nb-option value="Male">Male</nb-option>
+                      <nb-option value="Female">Female</nb-option>
+                  </nb-select>
+              </div>
+          </div>
+
+          <div class="form-group row">
+              <label for="idCardNumber" class="label col-sm-5 col-form-label">ID Card Number</label>
+              <div class="col-sm-7">
+                  <input type="text" nbInput fullWidth id="idCardNumber" placeholder="ID Card Number" [(ngModel)]="personalInformation.idCardNumber" name="idCardNumber" [(disabled)]="disabled">
+              </div>
+          </div>
+          
+      </div>
+
+      
+  </div>
+
+  <!-- ======================================================================================================= -->
+
+  <div class="form-group row">
+      <label for="department" class="label col-sm-2 col-form-label">Department</label>
+      <div class="col-sm-10">
+          <input type="text" nbInput fullWidth id="department" placeholder="Department" [(ngModel)]="personalInformation.department" name="department" [(disabled)]="disabled">
+      </div>
+  </div>
+
+  <!-- ======================================================================================================= -->
+
+  <div class="form-group row">
+      <label for="organization" class="label col-sm-2 col-form-label">Organization</label>
+      <div class="col-sm-10">
+          <input type="text" nbInput fullWidth id="organization" placeholder="Organization" [(ngModel)]="personalInformation.organization" name="organization" [(disabled)]="disabled">
+      </div>
+  </div>
+
+  <!-- ======================================================================================================= -->
+
+  <div class="row show-grid">
+      <div class="col-md-7">
+
+          <div class="form-group row">
+              <label for="organizationAddress" class="label col-sm-3 col-form-label">Organization Address</label>
+              <div class="col-sm-9">
+                  <input type="text" nbInput fullWidth id="organizationAddress" placeholder="Organization Address" [(ngModel)]="personalInformation.organizationAddress" name="organizationAddress" [(disabled)]="disabled">
+              </div>
+          </div>
+
+          <div class="form-group row">
+              <label for="phoneNumber" class="label col-sm-3 col-form-label">Phone Number</label>
+              <div class="col-sm-9">
+                  <input type="text" nbInput fullWidth id="phoneNumber" placeholder="Phone Number" [(ngModel)]="personalInformation.phoneNumber" name="phoneNumber" [(disabled)]="disabled">
+              </div>
+          </div>
+          
+          <div class="form-group row">
+              <label for="workingEmail" class="label col-sm-3 col-form-label">Working Email</label>
+              <div class="col-sm-9">
+                  <input type="text" nbInput fullWidth id="workingEmail" placeholder="Working Email" [(ngModel)]="personalInformation.workingEmail" name="workingEmail" [(disabled)]="disabled">
+              </div>
+          </div>
+          
+      </div>
+
+      <div class="col-md-5">
+
+          <div class="form-group row">
+              <label for="province" class="label col-sm-3 col-form-label">Province</label>
+              <div class="col-sm-9">
+                  <input type="text" nbInput fullWidth id="province" placeholder="Province" [(ngModel)]="personalInformation.province" name="province" [(disabled)]="disabled">
+              </div>
+          </div>
+
+          <div class="form-group row">
+              <label for="mobilePhoneNumber" class="label col-sm-3 col-form-label">Mobile Number</label>
+              <div class="col-sm-9">
+                  <input type="text" nbInput fullWidth id="mobileNumber" placeholder="Mobile Number" [(ngModel)]="personalInformation.mobileNumber" name="mobileNumber" [(disabled)]="disabled">
+              </div>
+          </div>
+
+          <div class="form-group row">
+              <label for="fax" class="label col-sm-3 col-form-label">Fax</label>
+              <div class="col-sm-9">
+                  <input type="text" nbInput fullWidth id="fax" placeholder="Fax" [(ngModel)]="personalInformation.fax" name="fax" [(disabled)]="disabled">
+              </div>
+          </div>
+          
+      </div>
+
+      
+  </div>
+
+  <!-- ======================================================================================================= -->
+
+  <div class="form-group row">
+      <label for="alternativeEmail" class="label col-sm-2 col-form-label">Alternative Email</label>
+      <div class="col-sm-10">
+          <input type="text" nbInput fullWidth id="alternativeEmail" placeholder="Alternative Email" [(ngModel)]="personalInformation.alternativeEmail" name="alternativeEmail" [(disabled)]="disabled">
+      </div>
+  </div>
+
+  <!-- ======================================================================================================= -->
+
+  <div class="form-group row">
+      <label for="bankAccountNumber" class="label col-sm-2 col-form-label">Bank Account Number</label>
+      <div class="col-sm-10">
+          <input type="text" nbInput fullWidth id="bankAccountNumber" placeholder="Bank Account Number" [(ngModel)]="personalInformation.bankAccountNumber" name="bankAccountNumber" [(disabled)]="disabled">
+      </div>
+  </div>
+
+  <!-- ======================================================================================================= -->
+
+  <div class="form-group row">
+      <label for="bank" class="label col-sm-2 col-form-label">Bank</label>
+      <div class="col-sm-10">
+          <input type="text" nbInput fullWidth id="bank" placeholder="Bank" [(ngModel)]="personalInformation.bank" name="bank" [(disabled)]="disabled">
+      </div>
+  </div>
+
+  <!-- ======================================================================================================= -->
+
+  <div class="form-group row">
+      <label for="bankBranch" class="label col-sm-2 col-form-label">Bank Branch</label>
+      <div class="col-sm-10">
+          <input type="text" nbInput fullWidth id="bankBranch" placeholder="Bank Branch" [(ngModel)]="personalInformation.bankBranch" name="bankBranch" [(disabled)]="disabled">
+      </div>
+  </div>
+
+</form>

@@ -20,4 +20,8 @@ export class UsersService {
     return this.defaulDataService.getScienceProfile();
   }
 
+  updateScienceProfile(data: IScienceProfile) {
+    console.log(data);
+  }
+
 }

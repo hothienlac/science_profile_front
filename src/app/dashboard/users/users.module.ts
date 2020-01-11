@@ -27,11 +27,18 @@ import { AllComponent } from './all/all.component';
 import { DetailComponent } from './detail/detail.component';
 import { NewComponent } from './new/new.component';
 
-
-import { ScienceProfileFormModule } from '../../@theme/template/science-profile-form/science-profile-form.module';
 import { UtilModule } from '../../@theme/template/util/util.module';
 import { MiscellaneousModule } from 'src/app/@theme/template/miscellaneous/miscellaneous.module';
 import { UsersService } from './users.service';
+import { ProfileComponent } from './detail/profile/profile.component';
+import { PersonalInformationComponent } from './detail/profile/personal-information/personal-information.component';
+import { CareerComponent } from './detail/profile/career/career.component';
+import { EducationComponent } from './detail/profile/education/education.component';
+import {
+  ExperienceAndResearchesComponent,
+} from './detail/profile/experience-and-researches/experience-and-researches.component';
+import { ForeignLanguagesComponent } from './detail/profile/foreign-languages/foreign-languages.component';
+import { ProfileService } from './detail/profile/profile.service';
 
 @NgModule({
   declarations: [
@@ -39,9 +46,16 @@ import { UsersService } from './users.service';
     AllComponent,
     DetailComponent,
     NewComponent,
+    ProfileComponent,
+    PersonalInformationComponent,
+    CareerComponent,
+    EducationComponent,
+    ExperienceAndResearchesComponent,
+    ForeignLanguagesComponent,
   ],
   providers: [
     UsersService,
+    ProfileService,
   ],
   imports: [
     CommonModule,
@@ -64,7 +78,6 @@ import { UsersService } from './users.service';
     Ng2SmartTableModule,
     ThemeModule,
 
-    ScienceProfileFormModule,
     UtilModule,
 
     MiscellaneousModule,

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { first } from 'rxjs/operators';
 
 @Injectable()
@@ -9,6 +9,7 @@ export class AuthenticateService {
   constructor( private http: HttpClient ) { }
 
   async isAuthenticated(): Promise<boolean> {
+    return true;
     return this.http
             .get<boolean>('/api/auth/authenticated')
             .pipe(first())
@@ -23,6 +24,7 @@ export class AuthenticateService {
   }
 
   hasRole(roles: [any]): Observable<boolean> {
+    return of(false);
     return this.http.get<boolean>(`/api/auth/role`, { params: { roles } });
   }
 

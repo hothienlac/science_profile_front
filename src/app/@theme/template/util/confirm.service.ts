@@ -8,12 +8,13 @@ export class ConfirmService {
 
   constructor(private dialogService: NbDialogService) { }
 
-  public content: string;
-
-  confirm(content: string): Observable<boolean> {
-    this.content = content;
+  confirm(context: string): Observable<boolean> {
     return new Observable((observer) => {
-      this.dialogService.open(ConfirmComponent, {closeOnBackdropClick: false, closeOnEsc: false})
+      this.dialogService.open(ConfirmComponent, {
+            closeOnBackdropClick: false,
+            closeOnEsc: false,
+            context: context,
+        })
         .onClose.subscribe((confirm) => {
           observer.next(confirm);
           observer.complete();

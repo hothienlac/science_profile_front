@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { MENU_ITEMS } from './menu';
+import { MENU_ITEMS, MENU_ITEMS_ADMIN } from './menu';
 import { AuthenticateService } from '../authenticate';
 import { StorageService } from '../root-service/storage.service';
 import { NbMenuItem } from '@nebular/theme';
@@ -20,12 +20,10 @@ import { first, takeUntil } from 'rxjs/operators';
 })
 export class DashboardComponent implements OnInit, OnDestroy {
 
-  basicMenu: NbMenuItem[];
-  adminMenu: NbMenuItem[];
   private _ngDestroy$ = new Subject<void>();
   isAdmin: boolean;
 
-  menu = MENU_ITEMS;
+  public menu = MENU_ITEMS;
 
   constructor(
     private authenticateService: AuthenticateService,
@@ -33,6 +31,11 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   async ngOnInit() {
     await this.checkForAdmin();
+    if (this.isAdmin) {
+      this.menu = MENU_ITEMS_ADMIN;
+    } else {
+      this.menu = MENU_ITEMS;
+    }
   }
 
   async checkForAdmin() {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NbDialogRef } from '@nebular/theme';
 
 @Component({
@@ -8,7 +8,8 @@ import { NbDialogRef } from '@nebular/theme';
 })
 export class ConfirmComponent {
 
-  private content: string = 'abc';
+  @Input() context: string;
+
   constructor(
     protected ref: NbDialogRef<ConfirmComponent>,
   ) {

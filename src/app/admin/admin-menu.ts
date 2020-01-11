@@ -2,22 +2,35 @@ import { NbMenuItem } from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
   {
-    title: 'Dashboard',
+    title: 'Home',
     icon: 'home-outline',
-    link: '/admin/dashboard',
+    link: '/dashboard/home',
     home: true,
   },
   {
     title: 'Research',
     icon: 'edit-2-outline',
-    link: '/admin/research',
-    home: true,
+    link: '/dashboard/research',
+  },
+  {
+    title: 'Published Paper',
+    icon: 'file-text-outline',
+    link: '/dashboard/published',
+  },
+  {
+    title: 'Pending Papers',
+    icon: 'pantone-outline',
+    link: '/dashboard/pending',
+  },
+  {
+    title: 'Reviewing Papers',
+    icon: 'clipboard-outline',
+    link: '/dashboard/reviewing',
   },
   {
     title: 'Setting',
     icon: 'settings-2-outline',
-    link: '/admin/setting',
-    home: true,
+    link: '/dashboard/setting',
   },
 ];
 
@@ -28,27 +41,13 @@ export const MENU_ITEMS_ADMIN: NbMenuItem[] = [
     group: true,
   },
   {
-    title: 'Published Paper',
-    icon: 'file-text-outline',
-    link: '/admin/published',
-    home: true,
-  },
-  {
-    title: 'Pending Papers',
-    icon: 'pantone-outline',
-    link: '/admin/pending',
-    home: true,
-  },
-  {
-    title: 'Reviewing Papers',
-    icon: 'clipboard-outline',
-    link: '/admin/reviewing',
-    home: true,
-  },
-  {
     title: 'Users',
     icon: 'people-outline',
-    link: '/admin/users',
-    home: true,
+    link: '/dashboard/users',
+  },
+  {
+    title: 'Assignment',
+    icon: 'people-outline',
+    link: '/dashboard/assignment',
   },
 ];
