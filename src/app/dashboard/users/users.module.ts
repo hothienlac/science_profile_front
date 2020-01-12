@@ -40,6 +40,28 @@ import {
 import { ForeignLanguagesComponent } from './detail/profile/foreign-languages/foreign-languages.component';
 import { ProfileService } from './detail/profile/profile.service';
 import { CareerDialogComponent } from './detail/profile/career/career-dialog/career-dialog.component';
+import { EducationDialogComponent } from './detail/profile/education/education-dialog/education-dialog.component';
+import {
+  ResearchInterestComponent,
+} from './detail/profile/experience-and-researches/research-interest/research-interest.component';
+import {
+  ResearchInterestDialogComponent,
+} from './detail/profile/experience-and-researches/research-interest/research-interest-dialog/research-interest-dialog.component';
+import {
+  LatestResearchesComponent,
+} from './detail/profile/experience-and-researches/latest-researches/latest-researches.component';
+import {
+  LatestResearchesDialogComponent,
+} from './detail/profile/experience-and-researches/latest-researches/latest-researches-dialog/latest-researches-dialog.component';
+import {
+  TotalResearchesComponent,
+} from './detail/profile/experience-and-researches/total-researches/total-researches.component';
+import {
+  TotalResearchesDialogComponent,
+} from './detail/profile/experience-and-researches/total-researches/total-researches-dialog/total-researches-dialog.component';
+import {
+  ForeignLanguagesDialogComponent,
+} from './detail/profile/foreign-languages/foreign-languages-dialog/foreign-languages-dialog.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +76,14 @@ import { CareerDialogComponent } from './detail/profile/career/career-dialog/car
     ExperienceAndResearchesComponent,
     ForeignLanguagesComponent,
     CareerDialogComponent,
+    EducationDialogComponent,
+    ResearchInterestComponent,
+    ResearchInterestDialogComponent,
+    LatestResearchesComponent,
+    LatestResearchesDialogComponent,
+    TotalResearchesComponent,
+    TotalResearchesDialogComponent,
+    ForeignLanguagesDialogComponent,
   ],
   providers: [
     UsersService,
@@ -86,6 +116,11 @@ import { CareerDialogComponent } from './detail/profile/career/career-dialog/car
   ],
   entryComponents: [
     CareerDialogComponent,
+    EducationDialogComponent,
+    ResearchInterestDialogComponent,
+    LatestResearchesDialogComponent,
+    TotalResearchesDialogComponent,
+    ForeignLanguagesDialogComponent,
   ],
 })
 export class UsersModule { }

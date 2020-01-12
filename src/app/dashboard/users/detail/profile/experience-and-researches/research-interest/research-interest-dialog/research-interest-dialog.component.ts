@@ -2,18 +2,18 @@ import { Component } from '@angular/core';
 import { NbDialogRef } from '@nebular/theme';
 
 @Component({
-  selector: 'ngx-career-dialog',
-  templateUrl: './career-dialog.component.html',
-  styleUrls: ['./career-dialog.component.scss'],
+  selector: 'ngx-research-interest-dialog',
+  templateUrl: './research-interest-dialog.component.html',
+  styleUrls: ['./research-interest-dialog.component.scss']
 })
-export class CareerDialogComponent {
+export class ResearchInterestDialogComponent {
 
   public data;
   public disable;
   public del;
 
   constructor(
-    protected ref: NbDialogRef<CareerDialogComponent>,
+    protected ref: NbDialogRef<ResearchInterestDialogComponent>,
   ) {}
 
   cancel() {

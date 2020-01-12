@@ -64,24 +64,35 @@ export class CareerComponent implements OnDestroy {
     });
   }
 
-  async update() {
-    const result = this.profileService.getData();
-    result.career = await this.source.getAll();
-    this.profileService.dataSource
-      .next(result);
-  }
-
   ngOnDestroy(): void {
     this.Career.unsubscribe();
     this.Disabled.unsubscribe();
   }
 
   onRowSelect($event) {
+    const index = this.career.indexOf($event.data);
     this.profileService.toggleDialogue(CareerDialogComponent,
-      {data: $event, disable: this.disabled})
+      {data: $event.data, disable: this.disabled, del: !this.disabled})
       .subscribe((data) => {
-        console.log(this.disabled);
-      })
+        if (data === null) return;
+        if (data === false) {
+          this.career.splice(index, 1);
+          this.source.load(this.career);
+          return;
+        }
+        this.career[index] = data;
+        this.source.load(this.career);
+      });
+  }
+
+  onNew() {
+    this.profileService.toggleDialogue(CareerDialogComponent,
+      {data: {}, disable: false, del: false})
+      .subscribe((data) => {
+        if (data === null) return;
+        this.career.unshift(data);
+        this.source.load(this.career);
+      });
   }
 
 }

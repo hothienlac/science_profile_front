@@ -1,0 +1,54 @@
+<nb-card>
+  <nb-card-body>
+    <form>
+      <div class="form-group row">
+        <label for="researchInterest" class="label col-md-2 col-form-label">Research Interest</label>
+        <div class="col-md-10">
+          <input
+                type="text"
+                nbInput
+                fullWidth
+                id="researchInterest"
+                placeholder="researchInterest"
+                [(ngModel)]="data.researchInterest"
+                name="researchInterest"
+                [(disabled)]="disable">
+        </div>
+      </div>
+    </form>
+  </nb-card-body>
+  <nb-card-footer>
+    <div class="row show-grid">
+      <div class="col-md-4">
+        <button
+              fullWidth
+              class="cancel"
+              nbButton
+              status="danger"
+              (click)="cancel()">
+              Canccel
+        </button>
+      </div>
+      <div class="col-md-4">
+        <button
+              fullWidth
+              nbButton
+              status="warning"
+              [hidden]="!del"
+              (click)="delete()">
+              Delete
+        </button>
+      </div>
+      <div class="col-md-4">
+        <button
+              fullWidth
+              nbButton
+              status="success"
+              [hidden]="disable"
+              (click)="confirm()">
+              OK
+        </button>
+      </div>
+    </div>
+  </nb-card-footer>
+</nb-card>

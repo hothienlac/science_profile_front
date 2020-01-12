@@ -1,3 +1,13 @@
-<p>
-  foreign-languages works!
-</p>
+<button
+    fullWidth
+    class="cancel"
+    nbButton
+    status="primary"
+    [hidden]="disabled"
+    (click)="onNew()">
+    Add new
+</button>
+<ng2-smart-table [settings]="settings"
+    [source]="source"
+    (userRowSelect)="onRowSelect($event)">
+</ng2-smart-table>

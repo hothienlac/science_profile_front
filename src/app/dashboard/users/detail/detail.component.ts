@@ -12,7 +12,7 @@ import { ConfirmService } from 'src/app/@theme/template/util/confirm.service';
 export class DetailComponent implements OnInit {
 
   public editing: boolean = false;
-  private backup: IScienceProfile;
+  private backup: IScienceProfile = {};
 
   constructor(
     private usersService: UsersService,
@@ -23,16 +23,15 @@ export class DetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.profileService.setData(this.backup);
+    this.profileService.setData(JSON.parse(JSON.stringify(this.backup)));
   }
 
   onCancel() {
     this.confirmService.confirm('All changes will be discarded. Are you sure to CANCEL?')
       .subscribe((confirm) => {
         if (confirm) {
-          console.log('321');
           this.editing = false;
-          this.profileService.setData(this.backup);
+          this.profileService.setData(JSON.parse(JSON.stringify(this.backup)));
           this.profileService.setStatus(false);
         }
       });
@@ -47,12 +46,11 @@ export class DetailComponent implements OnInit {
     this.confirmService.confirm('Are you sure?')
       .subscribe((confirm) => {
         if (confirm) {
-          console.log('123');
           this.editing = false;
           this.profileService.setStatus(false);
           const result = this.profileService.getData();
-          console.log(result);
           this.usersService.updateScienceProfile(result);
+          this.backup = JSON.parse(JSON.stringify(result));
         }
       });
   }

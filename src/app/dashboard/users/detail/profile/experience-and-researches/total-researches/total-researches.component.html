@@ -1,0 +1,49 @@
+<h6>Total Published Research</h6>
+
+<button
+    fullWidth
+    class="cancel"
+    nbButton
+    status="primary"
+    [hidden]="disabled"
+    (click)="onNew()">
+    Add new
+</button>
+
+<p>ISI Paper</p>
+<ng2-smart-table [settings]="settings"
+    [source]="source_isi"
+    (userRowSelect)="onRowSelect($event, 'isi')">
+</ng2-smart-table>
+
+
+
+<p>Other International Paper</p>
+<ng2-smart-table [settings]="settings"
+    [source]="source_otherInternational"
+    (userRowSelect)="onRowSelect($event)">
+</ng2-smart-table>
+
+
+
+<p>National Paper</p>
+<ng2-smart-table [settings]="settings"
+    [source]="source_national"
+    (userRowSelect)="onRowSelect($event)">
+</ng2-smart-table>
+
+
+
+<p>Conference Reports</p>
+<ng2-smart-table [settings]="settings"
+    [source]="source_conference"
+    (userRowSelect)="onRowSelect($event)">
+</ng2-smart-table>
+
+
+
+<p>Others</p>
+<ng2-smart-table [settings]="settings"
+    [source]="source_other"
+    (userRowSelect)="onRowSelect($event)">
+</ng2-smart-table>

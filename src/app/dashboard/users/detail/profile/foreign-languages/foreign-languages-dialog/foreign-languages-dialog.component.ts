@@ -2,18 +2,18 @@ import { Component } from '@angular/core';
 import { NbDialogRef } from '@nebular/theme';
 
 @Component({
-  selector: 'ngx-career-dialog',
-  templateUrl: './career-dialog.component.html',
-  styleUrls: ['./career-dialog.component.scss'],
+  selector: 'ngx-foreign-languages-dialog',
+  templateUrl: './foreign-languages-dialog.component.html',
+  styleUrls: ['./foreign-languages-dialog.component.scss']
 })
-export class CareerDialogComponent {
+export class ForeignLanguagesDialogComponent {
 
   public data;
   public disable;
   public del;
 
   constructor(
-    protected ref: NbDialogRef<CareerDialogComponent>,
+    protected ref: NbDialogRef<ForeignLanguagesDialogComponent>,
   ) {}
 
   cancel() {

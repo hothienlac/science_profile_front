@@ -1,0 +1,150 @@
+<nb-card>
+  <nb-card-body>
+    <form>
+      <div class="form-group row">
+        <label for="authors" class="label col-md-2 col-form-label">Authors</label>
+        <div class="col-md-10">
+          <input
+                type="text"
+                nbInput
+                fullWidth
+                id="authors"
+                placeholder="authors"
+                [(ngModel)]="data.authors"
+                name="authors"
+                [(disabled)]="disable">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="publishedYear" class="label col-md-2 col-form-label">PublishedYear</label>
+        <div class="col-md-10">
+          <input
+                type="text"
+                nbInput
+                fullWidth
+                id="publishedYear"
+                placeholder="publishedYear"
+                [(ngModel)]="data.publishedYear"
+                name="publishedYear"
+                [(disabled)]="disable">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="project" class="label col-md-2 col-form-label">Project</label>
+        <div class="col-md-10">
+          <input
+                type="text"
+                nbInput
+                fullWidth
+                id="project"
+                placeholder="project"
+                [(ngModel)]="data.project"
+                name="project"
+                [(disabled)]="disable">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="publisher" class="label col-md-2 col-form-label">Publisher</label>
+        <div class="col-md-10">
+          <input
+                type="text"
+                nbInput
+                fullWidth
+                id="publisher"
+                placeholder="publisher"
+                [(ngModel)]="data.publisher"
+                name="publisher"
+                [(disabled)]="disable">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="issn_isbn" class="label col-md-2 col-form-label">ISSN_ISBN</label>
+        <div class="col-md-10">
+          <input
+                type="text"
+                nbInput
+                fullWidth
+                id="issn_isbn"
+                placeholder="issn_isbn"
+                [(ngModel)]="data.issn_isbn"
+                name="issn_isbn"
+                [(disabled)]="disable">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="file" class="label col-md-2 col-form-label">File</label>
+        <div class="col-md-10">
+          <input
+                type="text"
+                nbInput
+                fullWidth
+                id="file"
+                placeholder="file"
+                [(ngModel)]="data.file"
+                name="file"
+                [(disabled)]="disable">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="note" class="label col-md-2 col-form-label">Note</label>
+        <div class="col-md-10">
+          <input
+                type="text"
+                nbInput
+                fullWidth
+                id="note"
+                placeholder="note"
+                [(ngModel)]="data.note"
+                name="note"
+                [(disabled)]="disable">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="label col-sm-3 col-form-label">Type of Paper</label>
+        <div class="col-sm-9">
+            <nb-select fullWidth [(ngModel)]="data.type" name="type" [(disabled)]="disable">
+              <nb-option value="isi"                      >isi</nb-option>
+              <nb-option value="otherInternational"       >Other International</nb-option>
+              <nb-option value="national"                 >National</nb-option>
+              <nb-option value="conference"               >Conference Report</nb-option>
+              <nb-option value="other"                    >Other</nb-option>
+            </nb-select>
+        </div>
+      </div>
+    </form>
+  </nb-card-body>
+  <nb-card-footer>
+    <div class="row show-grid">
+      <div class="col-md-4">
+        <button
+              fullWidth
+              class="cancel"
+              nbButton
+              status="danger"
+              (click)="cancel()">
+              Canccel
+        </button>
+      </div>
+      <div class="col-md-4">
+        <button
+              fullWidth
+              nbButton
+              status="warning"
+              [hidden]="!del"
+              (click)="delete()">
+              Delete
+        </button>
+      </div>
+      <div class="col-md-4">
+        <button
+              fullWidth
+              nbButton
+              status="success"
+              [hidden]="disable"
+              (click)="confirm()">
+              OK
+        </button>
+      </div>
+    </div>
+  </nb-card-footer>
+</nb-card>
