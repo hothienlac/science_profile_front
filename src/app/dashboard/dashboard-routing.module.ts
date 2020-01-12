@@ -64,25 +64,25 @@ const routes: Routes = [
             },
             {
                 path: 'assignment',
-                loadChildren: () =>
-                    import('./assignment/assignment.module').then((m) => m.AssignmentModule),
                 canActivate: [ RoleGuard ],
                 data: {
                     expectedRole: [
                         ERoles.ADMIN,
                     ],
                 },
+                loadChildren: () =>
+                    import('./assignment/assignment.module').then((m) => m.AssignmentModule),
             },
             {
                 path: 'users',
-                loadChildren: () =>
-                    import('./users/users.module').then((m) => m.UsersModule),
                 canActivate: [ RoleGuard ],
                 data: {
                     expectedRole: [
                         ERoles.ADMIN,
                     ],
                 },
+                loadChildren: () =>
+                    import('./users/users.module').then((m) => m.UsersModule),
             },
             {
                 path: '**',

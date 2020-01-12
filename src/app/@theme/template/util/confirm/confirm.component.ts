@@ -8,8 +8,7 @@ import { NbDialogRef } from '@nebular/theme';
 })
 export class ConfirmComponent {
 
-  @Input() context: string;
-
+  public content: string;
   constructor(
     protected ref: NbDialogRef<ConfirmComponent>,
   ) {

@@ -10,11 +10,6 @@ const routes: Routes = [
       .then(m => m.DashboardModule),
   },
   {
-    path: 'pages',
-    loadChildren: () => import('./pages/pages.module')
-      .then(m => m.PagesModule),
-  },
-  {
     path: 'authenticate',
     loadChildren: () => import('./authenticate/authenticate.module')
       .then(m => m.AuthenticateModule),

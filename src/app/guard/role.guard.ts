@@ -34,9 +34,7 @@ export class RoleGuard implements CanActivate {
       return true;
     }
 
-    this.router.navigate(['/dashboard/home'], {
-      queryParams: { returnUrl: state.url },
-    });
+    this.router.navigate(['/dashboard/home']);
 
     return false;
   }

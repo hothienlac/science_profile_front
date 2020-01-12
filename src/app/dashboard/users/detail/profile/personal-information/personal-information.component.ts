@@ -12,19 +12,19 @@ export class PersonalInformationComponent implements OnDestroy {
 
   PersonalInformation: Subscription;
   personalInformation: IPersonalInformation;
+  Disabled: Subscription;
   disabled: boolean = true;
 
   constructor(
     public profileService: ProfileService,
   ) {
-    this.personalInformation = {};
     this.PersonalInformation = this.profileService.data$.subscribe((data: IScienceProfile) => {
       if (data.personalInformation) {
         this.personalInformation = data.personalInformation;
       } else
         this.personalInformation = {};
     });
-    profileService.disable$.subscribe((disable) => {
+    this.Disabled = profileService.disable$.subscribe((disable) => {
       this.disabled = !disable;
     });
   }
@@ -35,6 +35,7 @@ export class PersonalInformationComponent implements OnDestroy {
 
   ngOnDestroy(): void {
     this.PersonalInformation.unsubscribe();
+    this.Disabled.unsubscribe();
   }
 
 }

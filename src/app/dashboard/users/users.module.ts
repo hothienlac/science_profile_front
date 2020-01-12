@@ -39,6 +39,7 @@ import {
 } from './detail/profile/experience-and-researches/experience-and-researches.component';
 import { ForeignLanguagesComponent } from './detail/profile/foreign-languages/foreign-languages.component';
 import { ProfileService } from './detail/profile/profile.service';
+import { CareerDialogComponent } from './detail/profile/career/career-dialog/career-dialog.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { ProfileService } from './detail/profile/profile.service';
     EducationComponent,
     ExperienceAndResearchesComponent,
     ForeignLanguagesComponent,
+    CareerDialogComponent,
   ],
   providers: [
     UsersService,
@@ -81,6 +83,9 @@ import { ProfileService } from './detail/profile/profile.service';
     UtilModule,
 
     MiscellaneousModule,
+  ],
+  entryComponents: [
+    CareerDialogComponent,
   ],
 })
 export class UsersModule { }

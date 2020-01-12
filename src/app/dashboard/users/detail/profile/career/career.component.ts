@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { ConfirmService } from 'src/app/@theme/template/util/confirm.service';
 import { ProfileService } from '../profile.service';
 import { IScienceProfile, ICareer } from '@ngx/models';
+import { CareerDialogComponent } from './career-dialog/career-dialog.component';
 
 @Component({
   selector: 'ngx-career',
@@ -14,24 +15,9 @@ export class CareerComponent implements OnDestroy {
 
   settings = {
     actions: {
-      add: true,
-      edit: true,
-      delete: true,
-    },
-    add: {
-      addButtonContent: '<i class="nb-plus"></i>',
-      createButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
-    },
-    edit: {
-      editButtonContent: '<i class="nb-edit"></i>',
-      saveButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
-      confirmEdit: true,
-    },
-    delete: {
-      deleteButtonContent: '<i class="nb-trash"></i>',
-      confirmDelete: true,
+      add: false,
+      edit: false,
+      delete: false,
     },
     hideSubHeader: false,
     columns: {
@@ -58,21 +44,23 @@ export class CareerComponent implements OnDestroy {
 
   Career: Subscription;
   career: ICareer[];
+  Disabled: Subscription;
   disabled: boolean = true;
 
   constructor(
     public profileService: ProfileService,
     public confirmService: ConfirmService,
   ) {
-    this.career = [];
     this.Career = this.profileService.data$.subscribe((data: IScienceProfile) => {
       if (data.career) {
         this.career = data.career;
-      } else this.career = [];
+      } else {
+        this.career = [];
+      }
       this.source.load(this.career);
     });
-    profileService.disable$.subscribe((disable) => {
-      this.disabled = disable;
+    this.Disabled = profileService.disable$.subscribe((disable) => {
+      this.disabled = !disable;
     });
   }
 
@@ -85,6 +73,15 @@ export class CareerComponent implements OnDestroy {
 
   ngOnDestroy(): void {
     this.Career.unsubscribe();
+    this.Disabled.unsubscribe();
+  }
+
+  onRowSelect($event) {
+    this.profileService.toggleDialogue(CareerDialogComponent,
+      {data: $event, disable: this.disabled})
+      .subscribe((data) => {
+        console.log(this.disabled);
+      })
   }
 
 }

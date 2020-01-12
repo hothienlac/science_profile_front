@@ -1,0 +1,88 @@
+<nb-card>
+  <nb-card-body>
+    <form>
+      <div class="form-group row">
+        <label for="time" class="label col-md-2 col-form-label">Time</label>
+        <div class="col-md-10">
+          <input
+                type="text"
+                nbInput
+                fullWidth
+                id="time"
+                placeholder="time"
+                [(ngModel)]="career.time"
+                name="time"
+                [(disabled)]="disable">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="organization" class="label col-md-2 col-form-label">Organization</label>
+        <div class="col-md-10">
+          <input
+                type="text"
+                nbInput
+                fullWidth
+                id="organization"
+                placeholder="organization"
+                [(ngModel)]="career.organization"
+                name="organization"
+                [(disabled)]="disable">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="address" class="label col-md-2 col-form-label">Address</label>
+        <div class="col-md-10">
+          <input
+                type="text"
+                nbInput
+                fullWidth
+                id="address"
+                placeholder="address"
+                [(ngModel)]="career.address"
+                name="address"
+                [(disabled)]="disable">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="position" class="label col-md-2 col-form-label">Position</label>
+        <div class="col-md-10">
+          <input
+                type="text"
+                nbInput
+                fullWidth
+                id="position"
+                placeholder="position"
+                [(ngModel)]="career.position"
+                name="position"
+                [(disabled)]="disable">
+        </div>
+      </div>
+    </form>
+  </nb-card-body>
+  <nb-card-footer>
+    <div class="row show-grid">
+      <div class="col-md-4">
+        <button
+              fullWidth
+              class="cancel"
+              nbButton
+              status="danger"
+              (click)="cancel()">
+              Canccel
+        </button>
+      </div>
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4">
+        <button
+              fullWidth
+              nbButton
+              status="success"
+              [hidden]="disable"
+              (click)="confirm()">
+              OK
+        </button>
+      </div>
+    </div>
+  </nb-card-footer>
+</nb-card>

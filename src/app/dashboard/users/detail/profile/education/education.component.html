@@ -1,3 +1,6 @@
-<p>
-  education works!
-</p>
+<ng2-smart-table [settings]="settings"
+    [source]="source"
+    (create)="update()"
+    (edit)="update()"
+    (delete)="update()">
+</ng2-smart-table>

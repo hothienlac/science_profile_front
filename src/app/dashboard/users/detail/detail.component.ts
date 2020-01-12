@@ -9,7 +9,7 @@ import { ConfirmService } from 'src/app/@theme/template/util/confirm.service';
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.scss'],
 })
-export class DetailComponent {
+export class DetailComponent implements OnInit {
 
   public editing: boolean = false;
   private backup: IScienceProfile;
@@ -20,6 +20,9 @@ export class DetailComponent {
     private confirmService: ConfirmService,
   ) {
     this.backup = this.usersService.getScienceProfile('');
+  }
+
+  ngOnInit() {
     this.profileService.setData(this.backup);
   }
 
@@ -27,6 +30,7 @@ export class DetailComponent {
     this.confirmService.confirm('All changes will be discarded. Are you sure to CANCEL?')
       .subscribe((confirm) => {
         if (confirm) {
+          console.log('321');
           this.editing = false;
           this.profileService.setData(this.backup);
           this.profileService.setStatus(false);
@@ -39,14 +43,16 @@ export class DetailComponent {
     this.profileService.setStatus(true);
   }
 
-  async onSave($event) {
-    this.confirmService.confirm('All changes will be discarded. Are you sure to CANCEL?')
+  async onSave() {
+    this.confirmService.confirm('Are you sure?')
       .subscribe((confirm) => {
         if (confirm) {
-          console.log($event);
+          console.log('123');
           this.editing = false;
           this.profileService.setStatus(false);
-          this.usersService.updateScienceProfile(this.profileService.getData());
+          const result = this.profileService.getData();
+          console.log(result);
+          this.usersService.updateScienceProfile(result);
         }
       });
   }
